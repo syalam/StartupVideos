@@ -33,6 +33,10 @@
 		8C59414115AFC0D900410B63 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C59413F15AFC0D900410B63 /* CategoryViewController.xib */; };
 		8C59414515AFC42D00410B63 /* startupvideoNavigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59414315AFC42D00410B63 /* startupvideoNavigationbar.png */; };
 		8C59414615AFC42D00410B63 /* startupvideoNavigationbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59414415AFC42D00410B63 /* startupvideoNavigationbar@2x.png */; };
+		8C59414915AFC6E500410B63 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59414715AFC6E500410B63 /* bg.png */; };
+		8C59414A15AFC6E500410B63 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59414815AFC6E500410B63 /* bg@2x.png */; };
+		8C59414D15AFCA0C00410B63 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C59414C15AFCA0C00410B63 /* CategoryCell.m */; };
+		8C59415315AFCD1800410B63 /* TCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C59415015AFCA5400410B63 /* TCImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,12 @@
 		8C59413F15AFC0D900410B63 /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		8C59414315AFC42D00410B63 /* startupvideoNavigationbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startupvideoNavigationbar.png; sourceTree = "<group>"; };
 		8C59414415AFC42D00410B63 /* startupvideoNavigationbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startupvideoNavigationbar@2x.png"; sourceTree = "<group>"; };
+		8C59414715AFC6E500410B63 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		8C59414815AFC6E500410B63 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		8C59414B15AFCA0C00410B63 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		8C59414C15AFCA0C00410B63 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		8C59414F15AFCA5400410B63 /* TCImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageView.h; sourceTree = "<group>"; };
+		8C59415015AFCA5400410B63 /* TCImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,7 @@
 		8C59410515AFBBD600410B63 /* StartupVideos */ = {
 			isa = PBXGroup;
 			children = (
+				8C59415215AFCA5F00410B63 /* Helpers */,
 				8C59414215AFC0DD00410B63 /* Category */,
 				8C59410E15AFBBD600410B63 /* AppDelegate.h */,
 				8C59410F15AFBBD600410B63 /* AppDelegate.m */,
@@ -158,6 +169,8 @@
 		8C59412515AFBC9700410B63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8C59414715AFC6E500410B63 /* bg.png */,
+				8C59414815AFC6E500410B63 /* bg@2x.png */,
 				8C59414315AFC42D00410B63 /* startupvideoNavigationbar.png */,
 				8C59414415AFC42D00410B63 /* startupvideoNavigationbar@2x.png */,
 				8C59412E15AFBCFD00410B63 /* splash.png */,
@@ -194,8 +207,35 @@
 				8C59413D15AFC0D900410B63 /* CategoryViewController.h */,
 				8C59413E15AFC0D900410B63 /* CategoryViewController.m */,
 				8C59413F15AFC0D900410B63 /* CategoryViewController.xib */,
+				8C59414E15AFCA1000410B63 /* Category Cell */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		8C59414E15AFCA1000410B63 /* Category Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8C59414B15AFCA0C00410B63 /* CategoryCell.h */,
+				8C59414C15AFCA0C00410B63 /* CategoryCell.m */,
+			);
+			name = "Category Cell";
+			sourceTree = "<group>";
+		};
+		8C59415115AFCA5800410B63 /* TCImageView */ = {
+			isa = PBXGroup;
+			children = (
+				8C59414F15AFCA5400410B63 /* TCImageView.h */,
+				8C59415015AFCA5400410B63 /* TCImageView.m */,
+			);
+			name = TCImageView;
+			sourceTree = "<group>";
+		};
+		8C59415215AFCA5F00410B63 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8C59415115AFCA5800410B63 /* TCImageView */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +305,8 @@
 				8C59414115AFC0D900410B63 /* CategoryViewController.xib in Resources */,
 				8C59414515AFC42D00410B63 /* startupvideoNavigationbar.png in Resources */,
 				8C59414615AFC42D00410B63 /* startupvideoNavigationbar@2x.png in Resources */,
+				8C59414915AFC6E500410B63 /* bg.png in Resources */,
+				8C59414A15AFC6E500410B63 /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +321,8 @@
 				8C59411015AFBBD600410B63 /* AppDelegate.m in Sources */,
 				8C59411315AFBBD600410B63 /* ViewController.m in Sources */,
 				8C59414015AFC0D900410B63 /* CategoryViewController.m in Sources */,
+				8C59415315AFCD1800410B63 /* TCImageView.m in Sources */,
+				8C59414D15AFCA0C00410B63 /* CategoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

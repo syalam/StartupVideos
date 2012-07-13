@@ -7,6 +7,7 @@
 //
 
 #import "CategoryViewController.h"
+#import "CategoryCell.h"
 
 @interface CategoryViewController ()
 
@@ -34,8 +35,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationController.navigationBar.hidden = NO;
-    // Set the background image all UINavigationBars
+
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
 }
 
 - (void)viewDidUnload
@@ -54,22 +58,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
