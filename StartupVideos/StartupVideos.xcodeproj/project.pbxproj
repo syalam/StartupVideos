@@ -23,6 +23,8 @@
 		8C59412915AFBCB800410B63 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59412715AFBCB800410B63 /* Icon@2x.png */; };
 		8C59412B15AFBCC300410B63 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59412A15AFBCC300410B63 /* Icon@2x.png */; };
 		8C59412D15AFBCCE00410B63 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59412C15AFBCCE00410B63 /* Icon.png */; };
+		8C59413015AFBCFD00410B63 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59412E15AFBCFD00410B63 /* splash.png */; };
+		8C59413115AFBCFD00410B63 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59412F15AFBCFD00410B63 /* splash@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		8C59412715AFBCB800410B63 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8C59412A15AFBCC300410B63 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8C59412C15AFBCCE00410B63 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8C59412E15AFBCFD00410B63 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = "../../../../../Dropbox/Reyaad/Video-Lark/iPhone App - Startup Videos/splash.png"; sourceTree = "<group>"; };
+		8C59412F15AFBCFD00410B63 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "../../../../../Dropbox/Reyaad/Video-Lark/iPhone App - Startup Videos/splash@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 		8C59412515AFBC9700410B63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8C59412E15AFBCFD00410B63 /* splash.png */,
+				8C59412F15AFBCFD00410B63 /* splash@2x.png */,
 				8C59412415AFBC8C00410B63 /* App Icon */,
 			);
 			name = Images;
@@ -198,6 +204,8 @@
 				8C59412915AFBCB800410B63 /* Icon@2x.png in Resources */,
 				8C59412B15AFBCC300410B63 /* Icon@2x.png in Resources */,
 				8C59412D15AFBCCE00410B63 /* Icon.png in Resources */,
+				8C59413015AFBCFD00410B63 /* splash.png in Resources */,
+				8C59413115AFBCFD00410B63 /* splash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
