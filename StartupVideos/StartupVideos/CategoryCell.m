@@ -20,6 +20,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.thumbnailImage = [[TCImageView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 25, 200, 32)];
     }
     
     [self.contentView addSubview:self.thumbnailImage];
