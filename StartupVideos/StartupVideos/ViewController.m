@@ -37,6 +37,7 @@
 -(void)fadeOut:(id)sender
 {
     CategoryViewController *cvc = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
+    cvc.navigationItem.hidesBackButton = YES;
     [self.navigationController pushViewController:cvc animated:YES];
 }
 
