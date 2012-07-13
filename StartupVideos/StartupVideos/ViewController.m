@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CategoryViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationController.navigationBar.hidden = YES;
+    [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:1.0];
 }
 
 - (void)viewDidUnload
@@ -29,6 +32,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(void)fadeOut:(id)sender
+{
+    CategoryViewController *cvc = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
+    [self.navigationController pushViewController:cvc animated:YES];
 }
 
 @end

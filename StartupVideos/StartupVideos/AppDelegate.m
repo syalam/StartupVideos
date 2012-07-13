@@ -22,7 +22,9 @@
     [TestFlight takeOff:@"20ef7722d1516e832525e0e0f851ad54_MTAzMjY2MjAxMi0wNi0yNCAyMTozOTozMS4wNzU3NTI"];
 
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
