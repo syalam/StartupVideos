@@ -75,6 +75,8 @@
     
     // Configure the cell...
     cell.titleLabel.text = @"booya";
+    cell.videoCountLabel.text = @"10";
+    cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     
     return cell;
 }
@@ -129,6 +131,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 140;
 }
 
 @end
