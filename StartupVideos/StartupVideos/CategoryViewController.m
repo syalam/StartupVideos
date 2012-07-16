@@ -71,6 +71,8 @@
     CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
     }
     
     // Configure the cell...

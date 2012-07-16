@@ -19,9 +19,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.thumbnailImage = [[TCImageView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
+        self.thumbnailImage = [[TCImageView alloc] initWithFrame:CGRectMake(10, 25, 50, 50)];
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 25, 200, 32)];
-        self.videoCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 200, 32)];
+        self.videoCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 55, 200, 32)];
         self.chapterLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 80, 200, 32)];
 
     }
