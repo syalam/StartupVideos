@@ -1,20 +1,19 @@
 //
-//  CategoryViewController.m
+//  CategoryDetailViewController.m
 //  StartupVideos
 //
-//  Created by Sheehan Alam on 7/13/12.
+//  Created by Sheehan Alam on 7/16/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CategoryViewController.h"
-#import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
+#import "CategoryCell.h"
 
-@interface CategoryViewController ()
+@interface CategoryDetailViewController ()
 
 @end
 
-@implementation CategoryViewController
+@implementation CategoryDetailViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,10 +33,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.navigationController.navigationBar.hidden = NO;
-
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewDidUnload
@@ -77,9 +72,8 @@
     }
     
     // Configure the cell...
-    cell.titleLabel.text = @"booya";
-    cell.videoCountLabel.text = @"10";
-    cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
+    cell.titleLabel.text = @"Definition of social media marketing";
+    cell.videoCountLabel.text = @"lorem ipsum la di da";
     
     return cell;
 }
@@ -127,8 +121,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
-    [self.navigationController pushViewController:cdvc animated:YES];
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

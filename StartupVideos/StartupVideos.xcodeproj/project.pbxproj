@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C22A64115B465970053F951 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C22A63F15B465970053F951 /* CategoryDetailViewController.m */; };
+		8C22A64215B465970053F951 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C22A64015B465970053F951 /* CategoryDetailViewController.xib */; };
 		8C59410015AFBBD600410B63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5940FF15AFBBD600410B63 /* UIKit.framework */; };
 		8C59410215AFBBD600410B63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C59410115AFBBD600410B63 /* Foundation.framework */; };
 		8C59410415AFBBD600410B63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C59410315AFBBD600410B63 /* CoreGraphics.framework */; };
@@ -40,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C22A63E15B465970053F951 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = StartupVideos/CategoryDetailViewController.h; sourceTree = "<group>"; };
+		8C22A63F15B465970053F951 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = StartupVideos/CategoryDetailViewController.m; sourceTree = "<group>"; };
+		8C22A64015B465970053F951 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = StartupVideos/CategoryDetailViewController.xib; sourceTree = "<group>"; };
 		8C5940FB15AFBBD600410B63 /* StartupVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartupVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5940FF15AFBBD600410B63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8C59410115AFBBD600410B63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +102,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C22A64315B4659B0053F951 /* Category Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				8C22A63E15B465970053F951 /* CategoryDetailViewController.h */,
+				8C22A63F15B465970053F951 /* CategoryDetailViewController.m */,
+				8C22A64015B465970053F951 /* CategoryDetailViewController.xib */,
+			);
+			name = "Category Detail View";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		8C5940F015AFBBD600410B63 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +220,7 @@
 		8C59414215AFC0DD00410B63 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8C22A64315B4659B0053F951 /* Category Detail View */,
 				8C59413D15AFC0D900410B63 /* CategoryViewController.h */,
 				8C59413E15AFC0D900410B63 /* CategoryViewController.m */,
 				8C59413F15AFC0D900410B63 /* CategoryViewController.xib */,
@@ -307,6 +324,7 @@
 				8C59414615AFC42D00410B63 /* startupvideoNavigationbar@2x.png in Resources */,
 				8C59414915AFC6E500410B63 /* bg.png in Resources */,
 				8C59414A15AFC6E500410B63 /* bg@2x.png in Resources */,
+				8C22A64215B465970053F951 /* CategoryDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +341,7 @@
 				8C59414015AFC0D900410B63 /* CategoryViewController.m in Sources */,
 				8C59415315AFCD1800410B63 /* TCImageView.m in Sources */,
 				8C59414D15AFCA0C00410B63 /* CategoryCell.m in Sources */,
+				8C22A64115B465970053F951 /* CategoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
