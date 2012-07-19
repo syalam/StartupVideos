@@ -72,13 +72,12 @@
     CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
     }
     
     // Configure the cell...
-    cell.titleLabel.text = @"booya";
-    cell.videoCountLabel.text = @"10";
+    cell.titleLabel.text = @"Introduction";
+    cell.videoCountLabel.text = @"Includes 10 videos";
     cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     
     return cell;
@@ -133,7 +132,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 140;
+    return 82;
 }
 
 @end

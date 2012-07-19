@@ -39,6 +39,8 @@
 		8C59414A15AFC6E500410B63 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C59414815AFC6E500410B63 /* bg@2x.png */; };
 		8C59414D15AFCA0C00410B63 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C59414C15AFCA0C00410B63 /* CategoryCell.m */; };
 		8C59415315AFCD1800410B63 /* TCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C59415015AFCA5400410B63 /* TCImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8C97060215B806B3000F19C4 /* tableviewbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C97060015B806B3000F19C4 /* tableviewbg.png */; };
+		8C97060315B806B3000F19C4 /* tableviewbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C97060115B806B3000F19C4 /* tableviewbg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		8C59414C15AFCA0C00410B63 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		8C59414F15AFCA5400410B63 /* TCImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageView.h; sourceTree = "<group>"; };
 		8C59415015AFCA5400410B63 /* TCImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageView.m; sourceTree = "<group>"; };
+		8C97060015B806B3000F19C4 /* tableviewbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbg.png; sourceTree = "<group>"; };
+		8C97060115B806B3000F19C4 /* tableviewbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableviewbg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 		8C59412515AFBC9700410B63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8C97060015B806B3000F19C4 /* tableviewbg.png */,
+				8C97060115B806B3000F19C4 /* tableviewbg@2x.png */,
 				8C59414715AFC6E500410B63 /* bg.png */,
 				8C59414815AFC6E500410B63 /* bg@2x.png */,
 				8C59414315AFC42D00410B63 /* startupvideoNavigationbar.png */,
@@ -325,6 +331,8 @@
 				8C59414915AFC6E500410B63 /* bg.png in Resources */,
 				8C59414A15AFC6E500410B63 /* bg@2x.png in Resources */,
 				8C22A64215B465970053F951 /* CategoryDetailViewController.xib in Resources */,
+				8C97060215B806B3000F19C4 /* tableviewbg.png in Resources */,
+				8C97060315B806B3000F19C4 /* tableviewbg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
