@@ -47,6 +47,16 @@
 {
     [[SVHTTPClient sharedClient] getPath:@"startup_app.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
         NSLog(@"%@",JSON);
+        
+        _categories = [[NSMutableArray alloc] init];
+        
+        for(NSDictionary* category in [[JSON objectForKey:@"app"] valueForKey:@"categories"])
+        {
+            NSLog(@"%@",category);
+            [_categories addObject:category];
+        }
+        
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please check your internet connection" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
@@ -77,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return [_categories count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +100,7 @@
     }
     
     // Configure the cell...
-    cell.titleLabel.text = @"Introduction";
+    cell.titleLabel.text = [[[_categories objectAtIndex:indexPath.row] valueForKey:@"name"] valueForKey:@"category"];
     cell.videoCountLabel.text = @"Includes 10 videos";
     cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoryViewController : UITableViewController
-
+{
+    NSMutableArray* _categories;    
+}
 @end
