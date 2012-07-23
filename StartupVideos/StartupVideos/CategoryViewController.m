@@ -9,6 +9,7 @@
 #import "CategoryViewController.h"
 #import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
+#import "SVHTTPClient.h"
 
 @interface CategoryViewController ()
 
@@ -38,8 +39,21 @@
     self.navigationController.navigationBar.hidden = NO;
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    
+    [self fetchCategories];
 }
 
+-(void)fetchCategories
+{
+    [[SVHTTPClient sharedClient] getPath:@"startup_app.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+        NSLog(@"%@",JSON);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please check your internet connection" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }];
+
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];

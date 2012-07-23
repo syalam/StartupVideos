@@ -49,6 +49,7 @@
 		8C7E3C2315BD83830053A49B /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E3C1715BD83830053A49B /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8C7E3C2415BD83830053A49B /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E3C1915BD83830053A49B /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8C7E3C2515BD83830053A49B /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E3C1B15BD83830053A49B /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8C7E3C2D15BD85680053A49B /* SVHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E3C2C15BD85680053A49B /* SVHTTPClient.m */; };
 		8C97060215B806B3000F19C4 /* tableviewbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C97060015B806B3000F19C4 /* tableviewbg.png */; };
 		8C97060315B806B3000F19C4 /* tableviewbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C97060115B806B3000F19C4 /* tableviewbg@2x.png */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,8 @@
 		8C7E3C1915BD83830053A49B /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		8C7E3C1A15BD83830053A49B /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		8C7E3C1B15BD83830053A49B /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		8C7E3C2B15BD85680053A49B /* SVHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SVHTTPClient.h; sourceTree = "<group>"; };
+		8C7E3C2C15BD85680053A49B /* SVHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVHTTPClient.m; sourceTree = "<group>"; };
 		8C97060015B806B3000F19C4 /* tableviewbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbg.png; sourceTree = "<group>"; };
 		8C97060115B806B3000F19C4 /* tableviewbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableviewbg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +299,8 @@
 		8C7E3C0615BD83830053A49B /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				8C7E3C2B15BD85680053A49B /* SVHTTPClient.h */,
+				8C7E3C2C15BD85680053A49B /* SVHTTPClient.m */,
 				8C7E3C0715BD83830053A49B /* AFHTTPClient.h */,
 				8C7E3C0815BD83830053A49B /* AFHTTPClient.m */,
 				8C7E3C0915BD83830053A49B /* AFHTTPRequestOperation.h */,
@@ -420,6 +425,7 @@
 				8C7E3C2315BD83830053A49B /* AFURLConnectionOperation.m in Sources */,
 				8C7E3C2415BD83830053A49B /* AFXMLRequestOperation.m in Sources */,
 				8C7E3C2515BD83830053A49B /* UIImageView+AFNetworking.m in Sources */,
+				8C7E3C2D15BD85680053A49B /* SVHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
