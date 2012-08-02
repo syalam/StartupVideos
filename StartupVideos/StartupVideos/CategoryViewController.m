@@ -45,14 +45,15 @@
 
 -(void)fetchCategories
 {
-    [[SVHTTPClient sharedClient] getPath:@"startup_app.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+    
+    [[SVHTTPClient sharedClient] getPath:@"1/categories.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
         NSLog(@"%@",JSON);
         
         _categories = [[NSMutableArray alloc] init];
         
-        for(NSDictionary* category in [[JSON objectForKey:@"app"] valueForKey:@"categories"])
+        for(NSDictionary* object in JSON)
         {
-            NSLog(@"%@",category);
+            NSDictionary *category = [object objectForKey:@"category"];
             [_categories addObject:category];
         }
         
@@ -97,10 +98,22 @@
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+        if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
+        {
+            NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
+
+            NSDictionary *catThumb1 = [catThumb objectAtIndex:0];
+            NSDictionary *catThumb2 = [catThumb1 objectForKey:@"category_thumbnail"];
+            NSString *catThumbUrl = [catThumb2 valueForKey:@"category_thumbnail_url"];
+            [cell.thumbnailImage reloadWithUrl:catThumbUrl];
+            
+
+            
+        }
     }
     
     // Configure the cell...
-    cell.titleLabel.text = [[[_categories objectAtIndex:indexPath.row] valueForKey:@"name"] valueForKey:@"category"];
+    cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];
     cell.videoCountLabel.text = @"Includes 10 videos";
     cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     

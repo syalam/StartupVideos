@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryDetailViewController : UITableViewController
+@interface CategoryDetailViewController : UITableViewController {
+     NSMutableArray* _videos;
+}
 
 @end

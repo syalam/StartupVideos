@@ -8,6 +8,7 @@
 
 #import "CategoryDetailViewController.h"
 #import "CategoryCell.h"
+#import "SVHTTPClient.h"
 
 @interface CategoryDetailViewController ()
 
@@ -28,11 +29,30 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self fetchVideos];
+}
+
+-(void)fetchVideos
+{
+    
+    [[SVHTTPClient sharedClient] getPath:@"1/categories/2/videos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+        NSLog(@"%@",JSON);
+        
+        _videos = [[NSMutableArray alloc] init];
+        
+        for(NSDictionary* object in JSON)
+        {
+            NSDictionary *video = [object objectForKey:@"video"];
+            [_videos addObject:video];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please check your internet connection" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }];
+    
 }
 
 - (void)viewDidUnload
@@ -58,7 +78,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return [_videos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,11 +88,22 @@
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+        if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"])
+        {
+            NSArray *videoThumb = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"];
+            
+            NSDictionary *videoThumb1 = [videoThumb objectAtIndex:0];
+            NSDictionary *videoThumb2 = [videoThumb1 objectForKey:@"video_thumbnail"];
+            NSString *videoThumbUrl = [videoThumb2 valueForKey:@"video_thumbnail_url"];
+            [cell.thumbnailImage reloadWithUrl:videoThumbUrl];
+            
+        }
+
     }
     
     // Configure the cell...
-    cell.titleLabel.text = @"Definition of social media marketing";
-    cell.videoCountLabel.text = @"lorem ipsum la di da";
+    cell.titleLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"video_name"];
+    cell.videoCountLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"duration"];
     
     return cell;
 }
