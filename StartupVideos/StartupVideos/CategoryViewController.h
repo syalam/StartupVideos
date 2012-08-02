@@ -10,6 +10,7 @@
 
 @interface CategoryViewController : UITableViewController
 {
-    NSMutableArray* _categories;    
+    NSMutableArray* _categories;
+    NSMutableArray* _counts;
 }
 @end

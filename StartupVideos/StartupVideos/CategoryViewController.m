@@ -164,6 +164,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
+    cdvc.category = indexPath.row+2;
     [self.navigationController pushViewController:cdvc animated:YES];
 }
 

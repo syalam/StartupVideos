@@ -15,6 +15,7 @@
 @end
 
 @implementation CategoryDetailViewController
+@synthesize category;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,7 +36,7 @@
 -(void)fetchVideos
 {
     
-    [[SVHTTPClient sharedClient] getPath:@"1/categories/2/videos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+    [[SVHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"1/categories/%d/videos.json",category] parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
         NSLog(@"%@",JSON);
         
         _videos = [[NSMutableArray alloc] init];

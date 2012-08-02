@@ -10,6 +10,8 @@
 
 @interface CategoryDetailViewController : UITableViewController {
      NSMutableArray* _videos;
+    
 }
+@property (nonatomic) int category;
 
 @end
