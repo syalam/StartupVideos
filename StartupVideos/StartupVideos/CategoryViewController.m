@@ -114,7 +114,8 @@
     
     // Configure the cell...
     cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];
-    cell.videoCountLabel.text = @"Includes 10 videos";
+    NSNumber *videoCount = [[_categories objectAtIndex:indexPath.row] valueForKey:@"video_count"];
+    cell.videoCountLabel.text = [NSString stringWithFormat:@"Includes %d videos",[videoCount intValue]];
     cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     
     return cell;

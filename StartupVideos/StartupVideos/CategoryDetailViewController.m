@@ -9,6 +9,8 @@
 #import "CategoryDetailViewController.h"
 #import "CategoryCell.h"
 #import "SVHTTPClient.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @interface CategoryDetailViewController ()
 
@@ -152,18 +154,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"])
+    {
+        NSString *videoPath = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"];
+        LBYouTubePlayerViewController *player = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:videoPath]];
+        player.delegate = self;
+        
+    }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 82;
+}
+
+- (void) movieFinishedCallback:(NSNotification*) aNotification {
+    MPMoviePlayerController *player = [aNotification object];
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:player];
+}
+
+#pragma mark - LBYoutubePlayer Delegate Methods
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc]initWithContentURL:videoURL];
+    [self.navigationController presentMoviePlayerViewControllerAnimated:player];
+    
+}
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"VideoLark" message:@"Unable to play this video. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

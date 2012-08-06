@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBYouTubePlayerViewController.h"
 
-@interface CategoryDetailViewController : UITableViewController {
+@interface CategoryDetailViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
      NSMutableArray* _videos;
     
 }
