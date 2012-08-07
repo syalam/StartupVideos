@@ -54,6 +54,10 @@
 		1AE34A1D15CFB38200745C29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A1C15CFB38200745C29 /* Security.framework */; };
 		1AE34A1F15CFB39600745C29 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */; };
 		1AE34A2115CFB3D500745C29 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */; };
+		1AE34A2715D0F1E800745C29 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A2615D0F1E800745C29 /* Parse.framework */; };
+		1AE34A2D15D0F34700745C29 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A2C15D0F34700745C29 /* StoreKit.framework */; };
+		1AE34A2F15D0F38500745C29 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A2E15D0F38500745C29 /* CFNetwork.framework */; };
+		1AE34A3115D0F3B200745C29 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE34A3015D0F3B200745C29 /* libz.1.1.3.dylib */; };
 		8C22A64115B465970053F951 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C22A63F15B465970053F951 /* CategoryDetailViewController.m */; };
 		8C22A64215B465970053F951 /* CategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C22A64015B465970053F951 /* CategoryDetailViewController.xib */; };
 		8C59410015AFBBD600410B63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5940FF15AFBBD600410B63 /* UIKit.framework */; };
@@ -195,6 +199,10 @@
 		1AE34A1C15CFB38200745C29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		1AE34A2615D0F1E800745C29 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		1AE34A2C15D0F34700745C29 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1AE34A2E15D0F38500745C29 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1AE34A3015D0F3B200745C29 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		8C22A63E15B465970053F951 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = StartupVideos/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		8C22A63F15B465970053F951 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = StartupVideos/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		8C22A64015B465970053F951 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = StartupVideos/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -272,8 +280,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE34A2115CFB3D500745C29 /* libGoogleAdMobAds.a in Frameworks */,
 				1AE34A1F15CFB39600745C29 /* MobileCoreServices.framework in Frameworks */,
+				1AE34A3115D0F3B200745C29 /* libz.1.1.3.dylib in Frameworks */,
+				1AE34A2F15D0F38500745C29 /* CFNetwork.framework in Frameworks */,
+				1AE34A2D15D0F34700745C29 /* StoreKit.framework in Frameworks */,
+				1AE34A2115CFB3D500745C29 /* libGoogleAdMobAds.a in Frameworks */,
 				1AE34A1D15CFB38200745C29 /* Security.framework in Frameworks */,
 				1AE34A1B15CFB37300745C29 /* QuartzCore.framework in Frameworks */,
 				1AE34A1915CFB26200745C29 /* CoreData.framework in Frameworks */,
@@ -292,6 +303,7 @@
 				8C59410415AFBBD600410B63 /* CoreGraphics.framework in Frameworks */,
 				8C59413715AFBDA200410B63 /* libTestFlight.a in Frameworks */,
 				1AE3494A15CFB0F300745C29 /* libGreystripeSDK.a in Frameworks */,
+				1AE34A2715D0F1E800745C29 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +488,10 @@
 		8C5940FE15AFBBD600410B63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AE34A3015D0F3B200745C29 /* libz.1.1.3.dylib */,
+				1AE34A2E15D0F38500745C29 /* CFNetwork.framework */,
+				1AE34A2C15D0F34700745C29 /* StoreKit.framework */,
+				1AE34A2615D0F1E800745C29 /* Parse.framework */,
 				1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */,
 				1AE34A1C15CFB38200745C29 /* Security.framework */,
 				1AE34A1A15CFB37300745C29 /* QuartzCore.framework */,
@@ -880,6 +896,10 @@
 		8C59411A15AFBBD600410B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StartupVideos/StartupVideos-Prefix.pch";
 				INFOPLIST_FILE = "StartupVideos/StartupVideos-Info.plist";
@@ -899,6 +919,10 @@
 		8C59411B15AFBBD600410B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StartupVideos/StartupVideos-Prefix.pch";
 				INFOPLIST_FILE = "StartupVideos/StartupVideos-Info.plist";

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -19,15 +20,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [TestFlight takeOff:@"20ef7722d1516e832525e0e0f851ad54_MTAzMjY2MjAxMi0wNi0yNCAyMTozOTozMS4wNzU3NTI"];
-    
+    [Parse setApplicationId:@"0a2K2UkkPupVi9VbKwJsixINaaqNXRqYmhi6usR1"
+                  clientKey:@"CZW3aaXhi3WAXZXy69hJ0BRUrNwzqBao6v8GOXB4"];
     
     homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
     _homeNavController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
 
-    AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
-    [self.homeNavController.view addSubview:adWhirlView];
+    
     
     self.window.rootViewController = _homeNavController;
+    
+    AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
+    [self.window.rootViewController.view addSubview:adWhirlView];
     
     [self.window makeKeyAndVisible];
     return YES;
