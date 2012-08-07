@@ -23,6 +23,12 @@
     [Parse setApplicationId:@"0a2K2UkkPupVi9VbKwJsixINaaqNXRqYmhi6usR1"
                   clientKey:@"CZW3aaXhi3WAXZXy69hJ0BRUrNwzqBao6v8GOXB4"];
     
+    // Use the product identifier from iTunes to register a handler.
+    [PFPurchase addObserverForProduct:@"Pro" block:^(SKPaymentTransaction *transaction) {
+        // Write business logic that should run once this product is purchased.
+        isPro = YES;
+    }];
+    
     homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
     _homeNavController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
 

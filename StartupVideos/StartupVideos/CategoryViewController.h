@@ -13,4 +13,6 @@
     NSMutableArray* _categories;
     NSMutableArray* _counts;
 }
+
+- (void)upgradeButtonClicked;
 @end

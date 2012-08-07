@@ -10,6 +10,7 @@
 #import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
 #import "SVHTTPClient.h"
+#import <Parse/Parse.h>
 
 @interface CategoryViewController ()
 
@@ -39,8 +40,15 @@
     self.navigationController.navigationBar.hidden = NO;
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Pro" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
     [self fetchCategories];
+}
+-(void)upgradeButtonClicked:(id)sender {
+    [PFPurchase buyProduct:@"Pro" block:^(NSError *error) {
+        if (!error) {
+            // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
+        }
+    }];
 }
 
 -(void)fetchCategories
