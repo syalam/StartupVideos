@@ -13,18 +13,22 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [TestFlight takeOff:@"20ef7722d1516e832525e0e0f851ad54_MTAzMjY2MjAxMi0wNi0yNCAyMTozOTozMS4wNzU3NTI"];
-
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     
-    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.window.rootViewController = nav;
+    
+    homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
+    _homeNavController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+
+    AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
+    [self.homeNavController.view addSubview:adWhirlView];
+    
+    self.window.rootViewController = _homeNavController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -55,5 +59,33 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Adwhirl delegate methods
+- (NSString *)adWhirlApplicationKey {
+    return @"a2b7c6384c664fca85a6c9510986ccae";
+}
+
+- (UIViewController *)viewControllerForPresentingModalView {
+    return self.window.rootViewController;
+}
+
+- (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView {
+    [UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
+                    context:nil];
+    
+    [UIView setAnimationDuration:0.7];
+    
+    CGSize adSize = [adWhirlView actualAdSize];
+    CGRect newFrame = adWhirlView.frame;
+    
+    newFrame.size = adSize;
+    newFrame.origin.x = (320 - adSize.width)/ 2;
+    newFrame.origin.y = 20;
+    
+    adWhirlView.frame = newFrame;
+    
+    [UIView commitAnimations];
+}
+
 
 @end

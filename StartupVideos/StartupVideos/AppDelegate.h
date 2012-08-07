@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdWhirlView.h"
+#import "CategoryViewController.h"
 
-@class ViewController;
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate> {
+    CategoryViewController *homeViewController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) UINavigationController *homeNavController;
 
 @end

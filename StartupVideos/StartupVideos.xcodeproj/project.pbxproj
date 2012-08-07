@@ -194,7 +194,7 @@
 		1AE34A1A15CFB37300745C29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AE34A1C15CFB38200745C29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = StartupVideos/libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		8C22A63E15B465970053F951 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = StartupVideos/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		8C22A63F15B465970053F951 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = StartupVideos/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		8C22A64015B465970053F951 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = StartupVideos/CategoryDetailViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +388,7 @@
 		1AE349E215CFB11A00745C29 /* Admob */ = {
 			isa = PBXGroup;
 			children = (
+				1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */,
 				1AE349A315CFB11200745C29 /* GADAdMobExtras.h */,
 				1AE349A415CFB11200745C29 /* GADAdNetworkExtras.h */,
 				1AE349A515CFB11200745C29 /* GADAdSize.h */,
@@ -458,19 +459,6 @@
 		8C5940F015AFBBD600410B63 = {
 			isa = PBXGroup;
 			children = (
-				1AE34A2015CFB3D500745C29 /* libGoogleAdMobAds.a */,
-				1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */,
-				1AE34A1C15CFB38200745C29 /* Security.framework */,
-				1AE34A1A15CFB37300745C29 /* QuartzCore.framework */,
-				1AE34A1815CFB26200745C29 /* CoreData.framework */,
-				1AE34A1615CFB23D00745C29 /* SystemConfiguration.framework */,
-				1AE34A1415CFB23500745C29 /* MessageUI.framework */,
-				1AE34A1215CFB19F00745C29 /* MapKit.framework */,
-				1AE34A1015CFB19400745C29 /* libsqlite3.dylib */,
-				1AE34A0815CFB17A00745C29 /* AddressBook.framework */,
-				1AE34A0915CFB17A00745C29 /* AudioToolbox.framework */,
-				1AE34A0A15CFB17A00745C29 /* AVFoundation.framework */,
-				1AE34A0B15CFB17A00745C29 /* CoreLocation.framework */,
 				8C59410515AFBBD600410B63 /* StartupVideos */,
 				8C5940FE15AFBBD600410B63 /* Frameworks */,
 				8C5940FC15AFBBD600410B63 /* Products */,
@@ -488,6 +476,18 @@
 		8C5940FE15AFBBD600410B63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AE34A1E15CFB39600745C29 /* MobileCoreServices.framework */,
+				1AE34A1C15CFB38200745C29 /* Security.framework */,
+				1AE34A1A15CFB37300745C29 /* QuartzCore.framework */,
+				1AE34A1815CFB26200745C29 /* CoreData.framework */,
+				1AE34A1615CFB23D00745C29 /* SystemConfiguration.framework */,
+				1AE34A1415CFB23500745C29 /* MessageUI.framework */,
+				1AE34A1215CFB19F00745C29 /* MapKit.framework */,
+				1AE34A1015CFB19400745C29 /* libsqlite3.dylib */,
+				1AE34A0815CFB17A00745C29 /* AddressBook.framework */,
+				1AE34A0915CFB17A00745C29 /* AudioToolbox.framework */,
+				1AE34A0A15CFB17A00745C29 /* AVFoundation.framework */,
+				1AE34A0B15CFB17A00745C29 /* CoreLocation.framework */,
 				8C7E3C4615BD91DB0053A49B /* MediaPlayer.framework */,
 				8C59413A15AFBE0E00410B63 /* libz.dylib */,
 				8C59413215AFBDA200410B63 /* TestFlightSDK1 */,
