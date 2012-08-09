@@ -12,10 +12,10 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate> {
     CategoryViewController *homeViewController;
-    BOOL isPro;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *homeNavController;
+@property (strong, nonatomic) AdWhirlView *adWhirlView;
 
 @end

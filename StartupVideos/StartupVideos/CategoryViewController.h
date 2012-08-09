@@ -14,5 +14,4 @@
     NSMutableArray* _counts;
 }
 
-- (void)upgradeButtonClicked;
 @end

@@ -26,7 +26,9 @@
     // Use the product identifier from iTunes to register a handler.
     [PFPurchase addObserverForProduct:@"Pro" block:^(SKPaymentTransaction *transaction) {
         // Write business logic that should run once this product is purchased.
-        isPro = YES;
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"proPackage"];
+        [self.adWhirlView removeFromSuperview];
+        
     }];
     
     homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
@@ -36,8 +38,11 @@
     
     self.window.rootViewController = _homeNavController;
     
-    AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
-    [self.window.rootViewController.view addSubview:adWhirlView];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        _adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
+        [self.window.rootViewController.view addSubview:_adWhirlView];
+    }
+    
     
     [self.window makeKeyAndVisible];
     return YES;

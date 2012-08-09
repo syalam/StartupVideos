@@ -11,6 +11,7 @@
 #import "CategoryDetailViewController.h"
 #import "SVHTTPClient.h"
 #import <Parse/Parse.h>
+#import "AppDelegate.h"
 
 @interface CategoryViewController ()
 
@@ -40,15 +41,15 @@
     self.navigationController.navigationBar.hidden = NO;
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Pro" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
-    [self fetchCategories];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Pro" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
+
+    }
+        [self fetchCategories];
 }
 -(void)upgradeButtonClicked:(id)sender {
-    [PFPurchase buyProduct:@"Pro" block:^(NSError *error) {
-        if (!error) {
-            // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
-        }
-    }];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade" message:@"Upgrade to pro to disable ads" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 -(void)fetchCategories
@@ -181,5 +182,28 @@
 {
     return 82;
 }
+
+#pragma mark - UIAlertView Delegate Methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [PFPurchase buyProduct:@"Pro" block:^(NSError *error) {
+            if (!error) {
+                self.navigationItem.leftBarButtonItem = nil;
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade Complete" message:@"Upgrade successful" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                
+                //See AppDelegate.m
+                /*AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+                [delegate.adWhirlView removeFromSuperview];*/
+                
+            }
+        }];
+    }
+}
+
+
+
+
 
 @end
