@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import <Parse/Parse.h>
 
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -34,11 +35,13 @@
     homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
     _homeNavController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
 
+   
     
     
     self.window.rootViewController = _homeNavController;
     
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        
         _adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
         [self.window.rootViewController.view addSubview:_adWhirlView];
     }
@@ -95,7 +98,7 @@
     
     newFrame.size = adSize;
     newFrame.origin.x = (320 - adSize.width)/ 2;
-    newFrame.origin.y = 20;
+    newFrame.origin.y = (480 - adSize.height);
     
     adWhirlView.frame = newFrame;
     
