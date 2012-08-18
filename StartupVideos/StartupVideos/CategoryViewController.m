@@ -98,35 +98,54 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_categories count];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"] && _categories.count >= 5) {
+        return [_categories count] + 1;
+    }
+    else {
+        return [_categories count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [NSString stringWithFormat:@"Cell%d",indexPath.row];
+    NSString *CellIdentifier;
+    if (indexPath.row < _categories.count) {
+        CellIdentifier = [NSString stringWithFormat:@"Cell%d",indexPath.row];
+    }
+    else {
+        CellIdentifier = @"LastCell";
+    }
+    
     CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
-        if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
+
+        if (indexPath.row < _categories.count)
         {
-            NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
-
-            NSDictionary *catThumb1 = [catThumb objectAtIndex:0];
-            NSDictionary *catThumb2 = [catThumb1 objectForKey:@"category_thumbnail"];
-            NSString *catThumbUrl = [catThumb2 valueForKey:@"category_thumbnail_url"];
-            [cell.thumbnailImage reloadWithUrl:catThumbUrl];
+            cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
+            {
+                NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
+                
+                NSDictionary *catThumb1 = [catThumb objectAtIndex:0];
+                NSDictionary *catThumb2 = [catThumb1 objectForKey:@"category_thumbnail"];
+                NSString *catThumbUrl = [catThumb2 valueForKey:@"category_thumbnail_url"];
+                [cell.thumbnailImage reloadWithUrl:catThumbUrl];
+                
+            }
             
+            // Configure the cell...
+            cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];
+            NSNumber *videoCount = [[_categories objectAtIndex:indexPath.row] valueForKey:@"video_count"];
+            cell.videoCountLabel.text = [NSString stringWithFormat:@"Includes %d videos",[videoCount intValue]];
+            cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
 
-            
+        }
+        else {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell changeBackground];
         }
     }
-    
-    // Configure the cell...
-    cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];
-    NSNumber *videoCount = [[_categories objectAtIndex:indexPath.row] valueForKey:@"video_count"];
-    cell.videoCountLabel.text = [NSString stringWithFormat:@"Includes %d videos",[videoCount intValue]];
-    cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
     
     return cell;
 }
@@ -174,9 +193,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
-    cdvc.category = indexPath.row+2;
-    [self.navigationController pushViewController:cdvc animated:YES];
+    if (indexPath.row < _categories.count) {
+        CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
+        cdvc.category = indexPath.row+2;
+        [self.navigationController pushViewController:cdvc animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

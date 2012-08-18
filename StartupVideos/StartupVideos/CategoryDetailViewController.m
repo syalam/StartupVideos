@@ -81,32 +81,51 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_videos count];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"] && _videos.count >= 5) {
+        return [_videos count] + 1;
+    }
+    else {
+        return [_videos count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [NSString stringWithFormat:@"Cell%d",indexPath.row];
+    NSString *CellIdentifier;
+    if (indexPath.row < _videos.count) {
+        CellIdentifier = [NSString stringWithFormat:@"Cell%d",indexPath.row];
+    }
+    else {
+        CellIdentifier = @"LastCell";
+    }
     CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
-        if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"])
+        if (indexPath.row < _videos.count && _videos.count != 0)
         {
-            NSArray *videoThumb = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"];
+            cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"])
+            {
+                NSArray *videoThumb = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"];
             
-            NSDictionary *videoThumb1 = [videoThumb objectAtIndex:0];
-            NSDictionary *videoThumb2 = [videoThumb1 objectForKey:@"video_thumbnail"];
-            NSString *videoThumbUrl = [videoThumb2 valueForKey:@"video_thumbnail_url"];
-            [cell.thumbnailImage reloadWithUrl:videoThumbUrl];
+                NSDictionary *videoThumb1 = [videoThumb objectAtIndex:0];
+                NSDictionary *videoThumb2 = [videoThumb1 objectForKey:@"video_thumbnail"];
+                NSString *videoThumbUrl = [videoThumb2 valueForKey:@"video_thumbnail_url"];
+                [cell.thumbnailImage reloadWithUrl:videoThumbUrl];
+            
+            }
+            // Configure the cell...
+            cell.titleLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"video_name"];
+            cell.videoCountLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"duration"];
+        }
+        else
+        {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell changeBackground];
             
         }
 
     }
-    
-    // Configure the cell...
-    cell.titleLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"video_name"];
-    cell.videoCountLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"duration"];
     
     return cell;
 }

@@ -13,6 +13,7 @@
 {
 
 }
+-(void) changeBackground;
 
 @property(nonatomic,retain)    TCImageView* thumbnailImage;
 @property(nonatomic,retain)    UILabel* titleLabel;

@@ -53,4 +53,8 @@
     // Configure the view for the selected state
 }
 
+- (void)changeBackground {
+    self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableviewbg2"]];
+}
+
 @end
