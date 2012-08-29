@@ -40,6 +40,7 @@
     
     self.window.rootViewController = _homeNavController;
     
+    
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
         
         _adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];

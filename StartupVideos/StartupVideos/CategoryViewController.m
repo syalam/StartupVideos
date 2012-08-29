@@ -40,8 +40,8 @@
 
     
     self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationbar"] forBarMetrics:UIBarMetricsDefault];
 
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationBar"] forBarMetrics:UIBarMetricsDefault];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Pro" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
 
@@ -195,7 +195,7 @@
 {
     if (indexPath.row < _categories.count) {
         CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
-        cdvc.category = indexPath.row+2;
+        cdvc.category = indexPath.row+1;
         [self.navigationController pushViewController:cdvc animated:YES];
     }
 }
