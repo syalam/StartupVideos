@@ -92,7 +92,7 @@
 }
 
 - (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView {
-    [UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
+    /*[UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
                     context:nil];
     
     [UIView setAnimationDuration:0.7];
@@ -106,7 +106,16 @@
     
     adWhirlView.frame = newFrame;
     
-    [UIView commitAnimations];
+    [UIView commitAnimations];*/
+    
+    CGSize adSize = [adWhirlView actualAdSize];
+    CGRect newFrame = adWhirlView.frame;
+    
+    newFrame.size = adSize;
+    newFrame.origin.x = (320 - adSize.width)/ 2;
+    newFrame.origin.y = (480 - adSize.height);
+    
+    adWhirlView.frame = newFrame;
 }
 
 
