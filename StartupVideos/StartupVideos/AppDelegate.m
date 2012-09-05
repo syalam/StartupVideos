@@ -10,7 +10,7 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
-
+#import "TestFlight.h"
 
 @implementation AppDelegate
 
@@ -18,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [TestFlight takeOff:@"20ef7722d1516e832525e0e0f851ad54_MTAzMjY2MjAxMi0wNi0yNCAyMTozOTozMS4wNzU3NTI"];
@@ -89,7 +92,7 @@
 }
 
 - (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView {
-    [UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
+    /*[UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
                     context:nil];
     
     [UIView setAnimationDuration:0.7];
@@ -103,7 +106,16 @@
     
     adWhirlView.frame = newFrame;
     
-    [UIView commitAnimations];
+    [UIView commitAnimations];*/
+    
+    CGSize adSize = [adWhirlView actualAdSize];
+    CGRect newFrame = adWhirlView.frame;
+    
+    newFrame.size = adSize;
+    newFrame.origin.x = (320 - adSize.width)/ 2;
+    newFrame.origin.y = (480 - adSize.height);
+    
+    adWhirlView.frame = newFrame;
 }
 
 
