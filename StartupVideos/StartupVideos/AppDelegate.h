@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+@class ViewController;
+
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AdWhirlView.h"
@@ -16,7 +18,7 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UINavigationController *homeNavController;
+@property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) AdWhirlView *adWhirlView;
 
 @end

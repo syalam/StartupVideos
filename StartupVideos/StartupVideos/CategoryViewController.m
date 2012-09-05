@@ -43,7 +43,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationbar"] forBarMetrics:UIBarMetricsDefault];
 
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Pro" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"More" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
 
     }
         [self fetchCategories];

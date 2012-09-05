@@ -35,13 +35,14 @@
         
     }];
     
-    homeViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
-    _homeNavController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
 
    
     
     
-    self.window.rootViewController = _homeNavController;
+    self.window.rootViewController = nav;
     
     
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
