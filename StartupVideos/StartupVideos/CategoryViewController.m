@@ -43,7 +43,14 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationbar"] forBarMetrics:UIBarMetricsDefault];
 
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"More" style:UIBarButtonItemStyleBordered target:self action:@selector(upgradeButtonClicked:)];
+        UIImage *moreBtnImage = [UIImage imageNamed:@"moreBtn"];
+        UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        moreBtn.bounds = CGRectMake( 0, 0, moreBtnImage.size.width, moreBtnImage.size.height );
+        [moreBtn setImage:moreBtnImage forState:UIControlStateNormal];
+        [moreBtn addTarget:self action:@selector(upgradeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *moreBtnItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
+        
+        self.navigationItem.leftBarButtonItem = moreBtnItem;
 
     }
         [self fetchCategories];

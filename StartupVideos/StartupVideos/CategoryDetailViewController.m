@@ -31,6 +31,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImage *chapterBtnImage = [UIImage imageNamed:@"chapterbtn"];
+    UIButton *chapterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    chapterBtn.bounds = CGRectMake( 0, 0, chapterBtnImage.size.width, chapterBtnImage.size.height );
+    [chapterBtn setImage:chapterBtnImage forState:UIControlStateNormal];
+    [chapterBtn addTarget:self action:@selector(chapterBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *chBtnItem = [[UIBarButtonItem alloc] initWithCustomView:chapterBtn];
+    
+    self.navigationItem.leftBarButtonItem = chBtnItem;
 
     [self fetchVideos];
 }
@@ -206,6 +214,12 @@
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"VideoLark" message:@"Unable to play this video. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+}
+
+#pragma mark - Button Clicks
+
+- (void) chapterBtnClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
