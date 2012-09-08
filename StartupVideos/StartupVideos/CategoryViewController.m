@@ -50,7 +50,7 @@
         [moreBtn addTarget:self action:@selector(upgradeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *moreBtnItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
         
-        self.navigationItem.leftBarButtonItem = moreBtnItem;
+        self.navigationItem.rightBarButtonItem = moreBtnItem;
 
     }
         [self fetchCategories];
@@ -130,6 +130,7 @@
         if (indexPath.row < _categories.count)
         {
             cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            cell.playicon.image = [UIImage imageNamed:@"playicon"];
             if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
             {
                 NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
@@ -145,7 +146,7 @@
             cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];
             NSNumber *videoCount = [[_categories objectAtIndex:indexPath.row] valueForKey:@"video_count"];
             cell.videoCountLabel.text = [NSString stringWithFormat:@"Includes %d videos",[videoCount intValue]];
-            cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row];
+            cell.chapterLabel.text = [NSString stringWithFormat:@"Chapter %d", indexPath.row+1];
 
         }
         else {

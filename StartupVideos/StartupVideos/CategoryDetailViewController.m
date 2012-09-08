@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *chapterBtnImage = [UIImage imageNamed:@"chapterbtn"];
+    UIImage *chapterBtnImage = [UIImage imageNamed:@"backBtn"];
     UIButton *chapterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     chapterBtn.bounds = CGRectMake( 0, 0, chapterBtnImage.size.width, chapterBtnImage.size.height );
     [chapterBtn setImage:chapterBtnImage forState:UIControlStateNormal];
