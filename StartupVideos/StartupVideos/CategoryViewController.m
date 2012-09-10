@@ -12,6 +12,7 @@
 #import "SVHTTPClient.h"
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
+#import "AdViewController.h"
 
 @interface CategoryViewController ()
 
@@ -56,8 +57,11 @@
         [self fetchCategories];
 }
 -(void)upgradeButtonClicked:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade" message:@"Upgrade to pro to disable ads" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [alert show];
+    //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade" message:@"Upgrade to pro to disable ads" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    //[alert show];
+    AdViewController *avc = [[AdViewController alloc]initWithNibName:@"AdViewController" bundle:nil];
+    avc.moreClicked = YES;
+    [self.navigationController pushViewController:avc animated:YES];
 }
 
 -(void)fetchCategories
@@ -87,6 +91,11 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

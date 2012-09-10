@@ -56,7 +56,6 @@
     if (self.controller) {
         [self.controller.view removeFromSuperview];
     }
-    
     self.controller = [[MPMoviePlayerController alloc] initWithContentURL:URL];
     [self.controller prepareToPlay];
     self.controller.view.frame = self.bounds;
@@ -65,5 +64,6 @@
 }
 
 #pragma mark -
+
 
 @end

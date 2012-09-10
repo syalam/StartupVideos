@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CategoryViewController.h"
+#import "AdViewController.h"
 
 @interface ViewController ()
 
@@ -66,9 +67,18 @@
 
 -(void)fadeOut:(id)sender
 {
-    CategoryViewController *cvc = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
-    cvc.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:cvc animated:YES];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        AdViewController *avc = [[AdViewController alloc]initWithNibName:@"AdViewController" bundle:nil];
+        avc.isLaunch = YES;
+        [self.navigationController pushViewController:avc animated:YES];
+        
+    }
+    else {
+        CategoryViewController *cvc = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
+        cvc.navigationItem.hidesBackButton = YES;
+        [self.navigationController pushViewController:cvc animated:YES];
+    }
+    
 }
 
 @end

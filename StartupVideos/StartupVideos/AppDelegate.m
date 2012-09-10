@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import "TestFlight.h"
+#import "AdViewController.h"
 
 @implementation AppDelegate
 
@@ -75,6 +76,14 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"exitDuringVideo"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        LBYouTubePlayerViewController *LBplayer = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults]valueForKey:@"videoUrl"]]];
+        LBplayer.delegate = self;
+
+    }
+
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -119,5 +128,18 @@
     adWhirlView.frame = newFrame;
 }
 
+#pragma mark - LBYoutubePlayer Delegate Methods
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
+    player.category = [[NSUserDefaults standardUserDefaults]integerForKey:@"category"];
+    player.videoNumber = [[NSUserDefaults standardUserDefaults]integerForKey:@"videoNumber"];
+    player.videoUrl = [[NSUserDefaults standardUserDefaults]valueForKey:@"videoUrl"];
+    [self.window.rootViewController presentMoviePlayerViewControllerAnimated:player];
+    
+}
+-(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"VideoLark" message:@"Unable to play this video. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
 
 @end

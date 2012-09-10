@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "LBYouTubePlayerViewController.h"
+#import "MoviePlayerViewController.h"
 
 @interface CategoryDetailViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
      NSMutableArray* _videos;
+    MoviePlayerViewController *player;
+    NSString* videoPath;
+    int videoNumber;
+    BOOL wasPopped;
+    
     
 }
 @property (nonatomic) int category;

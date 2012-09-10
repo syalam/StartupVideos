@@ -10,6 +10,7 @@
 #import "CategoryCell.h"
 #import "SVHTTPClient.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "AdViewController.h"
 
 
 @interface CategoryDetailViewController ()
@@ -39,6 +40,18 @@
     UIBarButtonItem *chBtnItem = [[UIBarButtonItem alloc] initWithCustomView:chapterBtn];
     
     self.navigationItem.leftBarButtonItem = chBtnItem;
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        UIImage *moreBtnImage = [UIImage imageNamed:@"moreBtn"];
+        UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        moreBtn.bounds = CGRectMake( 0, 0, moreBtnImage.size.width, moreBtnImage.size.height );
+        [moreBtn setImage:moreBtnImage forState:UIControlStateNormal];
+        [moreBtn addTarget:self action:@selector(upgradeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *moreBtnItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
+        
+        self.navigationItem.rightBarButtonItem = moreBtnItem;
+        
+    }
+
 
     [self fetchVideos];
 }
@@ -71,6 +84,21 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.hidden = NO;
+    if (wasPopped && ![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        wasPopped = NO;
+        int willShowAd = arc4random()%2;
+        if (willShowAd) {
+            AdViewController *avc = [[AdViewController alloc]initWithNibName:@"AdViewController" bundle:nil];
+            [self.navigationController pushViewController:avc animated:YES];
+        }
+        
+    }
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -183,9 +211,10 @@
 {
     if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"])
     {
-        NSString *videoPath = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"];
-        LBYouTubePlayerViewController *player = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:videoPath]];
-        player.delegate = self;
+        videoNumber = indexPath.row+1;
+        videoPath = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"];
+        LBYouTubePlayerViewController *LBplayer = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:videoPath]];
+        LBplayer.delegate = self;
         
     }
 
@@ -196,18 +225,21 @@
     return 82;
 }
 
-- (void) movieFinishedCallback:(NSNotification*) aNotification {
+/*- (void) movieFinishedCallback:(NSNotification*) aNotification {
     MPMoviePlayerController *player = [aNotification object];
     [[NSNotificationCenter defaultCenter]
      removeObserver:self
      name:MPMoviePlayerPlaybackDidFinishNotification
      object:player];
-}
+}*/
 
 #pragma mark - LBYoutubePlayer Delegate Methods
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
-    
-    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc]initWithContentURL:videoURL];
+    wasPopped = YES;
+    player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
+    player.category = self.category;
+    player.videoNumber = videoNumber;
+    player.videoUrl = videoPath;
     [self.navigationController presentMoviePlayerViewControllerAnimated:player];
     
 }
@@ -221,5 +253,11 @@
 - (void) chapterBtnClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)upgradeButtonClicked:(id)sender {
+    AdViewController *avc = [[AdViewController alloc]initWithNibName:@"AdViewController" bundle:nil];
+    avc.moreClicked = YES;
+    [self.navigationController pushViewController:avc animated:YES];
+}
+
 
 @end
