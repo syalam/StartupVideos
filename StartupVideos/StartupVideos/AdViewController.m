@@ -29,8 +29,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.adWhirlView removeFromSuperview];
     adImage.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     adImage.contentMode = UIViewContentModeScaleAspectFit;
     [self loadSplash];
@@ -38,11 +36,18 @@
     [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:5.0];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.adWhirlView removeFromSuperview];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+
 
 -(void)viewDidDisappear:(BOOL)animated {
     [appDelegate.window.rootViewController.view addSubview:appDelegate.adWhirlView];

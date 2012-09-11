@@ -35,7 +35,7 @@
     // Release any retained subviews of the main view.
 }
 
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated {
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
         
         [appDelegate.window.rootViewController.view addSubview:appDelegate.adWhirlView];
