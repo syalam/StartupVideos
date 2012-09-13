@@ -56,6 +56,7 @@
     [self fetchVideos];
 }
 
+
 -(void)fetchVideos
 {
     
@@ -235,12 +236,16 @@
 
 #pragma mark - LBYoutubePlayer Delegate Methods
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
-    wasPopped = YES;
-    player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
-    player.category = self.category;
-    player.videoNumber = videoNumber;
-    player.videoUrl = videoPath;
-    [self.navigationController presentMoviePlayerViewControllerAnimated:player];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        wasPopped = YES;
+        player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
+        player.category = self.category;
+        player.videoNumber = videoNumber;
+        player.videoUrl = videoPath;
+        [self.navigationController presentMoviePlayerViewControllerAnimated:player];
+        //[self.navigationController pushViewController:player animated:YES];
+    });
+    
     
 }
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {

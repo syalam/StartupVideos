@@ -105,7 +105,7 @@
     if (!wasClicked && !_isLaunch) {
         [self.navigationController popViewControllerAnimated:YES];
     }
-    if (_isLaunch) {
+    if (!wasClicked && _isLaunch) {
         CategoryViewController *cvc = [[CategoryViewController alloc]initWithNibName:@"CategoryViewController" bundle:nil];
         cvc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:cvc animated:YES];

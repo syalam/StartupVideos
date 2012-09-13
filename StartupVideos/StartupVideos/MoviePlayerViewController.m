@@ -34,15 +34,22 @@
                                              selector:@selector(moviePlayBackStateDidChange:)
                                                  name:MPMoviePlayerPlaybackStateDidChangeNotification
                                                object:self.moviePlayer];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(exitDuringVideo:)
-                                                 name:UIApplicationWillResignActiveNotification
-                                               object:nil];
-
+                                                 name:UIApplicationWillResignActiveNotification object:nil];
+    
     if ([[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]]) {
         self.moviePlayer.initialPlaybackTime = [[NSUserDefaults standardUserDefaults] floatForKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
     }
+    
+    /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MPMoviePlayerDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];*/
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -58,14 +65,15 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark - Notification Handlers
 -(void)moviePlayBackStateDidChange:(id)sender
 {
     if (self.moviePlayer.currentPlaybackTime != self.moviePlayer.duration) {
-        //NSLog([NSString stringWithFormat:@"Current Playback Time: %d",self.moviePlayer.currentPlaybackTime]);
+
         [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
         
     }
@@ -85,6 +93,13 @@
     didExit = YES;
     
 }
-
+/*- (void)MPMoviePlayerDidFinish:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:nil];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}*/
 
 @end
