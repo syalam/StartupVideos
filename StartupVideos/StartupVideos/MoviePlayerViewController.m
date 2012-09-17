@@ -8,6 +8,7 @@
 
 #import "MoviePlayerViewController.h"
 #import "AdViewController.h"
+#import "AppDelegate.h"
 
 @interface MoviePlayerViewController ()
 
@@ -27,9 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.moviePlayer.useApplicationAudioSession = NO;
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    delegate.moviePlayer = self.moviePlayer;
     // Do any additional setup after loading the view from its nib.
-    didExit = NO;
-    ad = arc4random()%2;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:self.moviePlayer];
+    
+    // Register this class as an observer instead
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MPMoviePlayerDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackStateDidChange:)
                                                  name:MPMoviePlayerPlaybackStateDidChangeNotification
@@ -75,31 +85,38 @@
     if (self.moviePlayer.currentPlaybackTime != self.moviePlayer.duration) {
 
         [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
+        self.moviePlayer.initialPlaybackTime = self.moviePlayer.currentPlaybackTime;
         
     }
     else {
         [[NSUserDefaults standardUserDefaults]setFloat:0 forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
-    }
-    if (didExit) {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"exitDuringVideo"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        [[NSUserDefaults standardUserDefaults]setValue:self.videoUrl forKey:@"videoUrl"];
-        [[NSUserDefaults standardUserDefaults]setInteger:self.videoNumber forKey:@"videoNumber"];
-        [[NSUserDefaults standardUserDefaults]setInteger:self.category forKey:@"category"];
+        self.moviePlayer.initialPlaybackTime = 0;
     }
 
 }
 -(void)exitDuringVideo:(id)sender {
-    didExit = YES;
+    //AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //delegate.playbackTimeBeforeBackground = self.moviePlayer.currentPlaybackTime;
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"exitDuringVideo"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSUserDefaults standardUserDefaults]setValue:self.videoUrl forKey:@"videoUrl"];
+    [[NSUserDefaults standardUserDefaults]setInteger:self.videoNumber forKey:@"videoNumber"];
+    [[NSUserDefaults standardUserDefaults]setInteger:self.category forKey:@"category"];
+    
+    [self.moviePlayer pause];
     
 }
-/*- (void)MPMoviePlayerDidFinish:(NSNotification *)notification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:nil];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}*/
+- (void)MPMoviePlayerDidFinish:(NSNotification *)notification
+{    
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    else {
+        
+    }
+}
+
+
+
 
 @end

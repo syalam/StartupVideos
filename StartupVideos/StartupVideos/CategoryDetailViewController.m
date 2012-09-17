@@ -226,13 +226,6 @@
     return 82;
 }
 
-/*- (void) movieFinishedCallback:(NSNotification*) aNotification {
-    MPMoviePlayerController *player = [aNotification object];
-    [[NSNotificationCenter defaultCenter]
-     removeObserver:self
-     name:MPMoviePlayerPlaybackDidFinishNotification
-     object:player];
-}*/
 
 #pragma mark - LBYoutubePlayer Delegate Methods
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
@@ -243,13 +236,12 @@
         player.videoNumber = videoNumber;
         player.videoUrl = videoPath;
         [self.navigationController presentMoviePlayerViewControllerAnimated:player];
-        //[self.navigationController pushViewController:player animated:YES];
     });
     
     
 }
 -(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"VideoLark" message:@"Unable to play this video. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Startup Videos" message:@"Sorry, hustler, this video is not working right now" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
 

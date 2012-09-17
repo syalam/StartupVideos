@@ -95,6 +95,7 @@
         index = arc4random()%16;
         
         UIImage *selectedImage = [splashArray objectAtIndex:index];
+        
         [adImage setImage:selectedImage];
 
     }

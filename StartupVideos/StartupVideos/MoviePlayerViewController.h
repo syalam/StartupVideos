@@ -11,8 +11,6 @@
 
 
 @interface MoviePlayerViewController : MPMoviePlayerViewController {
-    BOOL didExit;
-    int ad;
 }
 
 @property int category;

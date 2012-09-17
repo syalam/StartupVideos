@@ -12,17 +12,17 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AdWhirlView.h"
 #import "CategoryViewController.h"
-#import "MoviePlayerViewController.h"
-#import "LBYouTubePlayerViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate, LBYouTubePlayerControllerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate> {
     CategoryViewController *homeViewController;
-    MoviePlayerViewController *player;
+    
 }
+-(void)startPlayerAfterDelayPause;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) AdWhirlView *adWhirlView;
-@property (strong, nonatomic) NSString *videoUrl;
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
 
 @end

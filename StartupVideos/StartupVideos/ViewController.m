@@ -49,7 +49,7 @@
 }
 
 -(void)loadSplash {
-    UIImage *image1 = [UIImage imageNamed:@"splash"];
+    //UIImage *image1 = [UIImage imageNamed:@"splash"];
     UIImage *image2 = [UIImage imageNamed:@"splash2"];
     UIImage *image3 = [UIImage imageNamed:@"splash3"];
     UIImage *image4 = [UIImage imageNamed:@"splash4"];
@@ -58,8 +58,8 @@
     UIImage *image7 = [UIImage imageNamed:@"splash7"];
     UIImage *image8 = [UIImage imageNamed:@"splash8"];
     
-    NSArray *splashArray = [[NSArray alloc]initWithObjects:image1, image2, image3, image4, image5, image6, image7, image8, nil];
-    int index = arc4random()%8;
+    NSArray *splashArray = [[NSArray alloc]initWithObjects:image2, image3, image4, image5, image6, image7, image8, nil];
+    int index = arc4random()%7;
     
     UIImage *selectedImage = [splashArray objectAtIndex:index];
     [splash setImage:selectedImage];

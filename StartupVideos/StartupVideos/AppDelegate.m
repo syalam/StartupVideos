@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import "TestFlight.h"
@@ -59,6 +58,7 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
@@ -79,13 +79,16 @@
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"exitDuringVideo"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        LBYouTubePlayerViewController *LBplayer = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults]valueForKey:@"videoUrl"]]];
-        LBplayer.delegate = self;
-
+        [self.moviePlayer prepareToPlay];
+        [self.moviePlayer pause];
     }
 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
+
+- (void)startPlayerAfterDelayPause:(NSNumber *)isPause {
+}
+
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
@@ -102,21 +105,6 @@
 }
 
 - (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView {
-    /*[UIView beginAnimations:@"AdWhirlDelegate.adWhirlDidReceiveAd:"
-                    context:nil];
-    
-    [UIView setAnimationDuration:0.7];
-    
-    CGSize adSize = [adWhirlView actualAdSize];
-    CGRect newFrame = adWhirlView.frame;
-    
-    newFrame.size = adSize;
-    newFrame.origin.x = (320 - adSize.width)/ 2;
-    newFrame.origin.y = (480 - adSize.height);
-    
-    adWhirlView.frame = newFrame;
-    
-    [UIView commitAnimations];*/
     
     CGSize adSize = [adWhirlView actualAdSize];
     CGRect newFrame = adWhirlView.frame;
@@ -128,18 +116,5 @@
     adWhirlView.frame = newFrame;
 }
 
-#pragma mark - LBYoutubePlayer Delegate Methods
--(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
-    player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
-    player.category = [[NSUserDefaults standardUserDefaults]integerForKey:@"category"];
-    player.videoNumber = [[NSUserDefaults standardUserDefaults]integerForKey:@"videoNumber"];
-    player.videoUrl = [[NSUserDefaults standardUserDefaults]valueForKey:@"videoUrl"];
-    [self.window.rootViewController presentMoviePlayerViewControllerAnimated:player];
-    
-}
--(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"VideoLark" message:@"Unable to play this video. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-}
 
 @end
