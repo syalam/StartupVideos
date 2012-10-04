@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "TestFlight.h"
 #import "AdViewController.h"
+#import "InAppZapIAPHelper.h"
 
 @implementation AppDelegate
 
@@ -28,12 +29,13 @@
                   clientKey:@"CZW3aaXhi3WAXZXy69hJ0BRUrNwzqBao6v8GOXB4"];
     
     // Use the product identifier from iTunes to register a handler.
-    [PFPurchase addObserverForProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(SKPaymentTransaction *transaction) {
+    /*[PFPurchase addObserverForProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(SKPaymentTransaction *transaction) {
         // Write business logic that should run once this product is purchased.
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"proPackage"];
         [self.adWhirlView removeFromSuperview];
         
-    }];
+    }];*/
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:[InAppZapIAPHelper sharedHelper]];
     
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     

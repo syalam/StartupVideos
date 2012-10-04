@@ -38,6 +38,10 @@
     [self loadSplash];
     self.navigationController.navigationBar.hidden = YES;
     [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:5.0];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsLoaded:) name:kProductsLoadedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:kProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(productPurchaseFailed:) name:kProductPurchaseFailedNotification object: nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -170,8 +174,9 @@
         NSLog(@"Buying %@...", product.productIdentifier);
         //[[InAppZapIAPHelper sharedHelper] buyProductIdentifier:product.productIdentifier];
         InAppZapIAPHelper *purchaseHelper = [[InAppZapIAPHelper alloc]init];
-        [purchaseHelper buyProductIdentifier:product.productIdentifier];
+        [purchaseHelper buyProductIdentifier:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro"];
         [self performSelector:@selector(timeout:) withObject:nil afterDelay:60*5];
+        
         /*[PFPurchase buyProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(NSError *error) {
             if (!error) {
                 self.navigationItem.leftBarButtonItem = nil;
