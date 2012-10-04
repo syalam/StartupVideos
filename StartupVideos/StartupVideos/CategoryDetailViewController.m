@@ -53,7 +53,12 @@
     }
 
 
-    [self fetchVideos];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        [self fetchProVideos];
+    }
+    else {
+        [self fetchVideos];
+    }
 }
 
 
@@ -80,6 +85,30 @@
     
 }
 
+-(void)fetchProVideos
+{
+    
+    [[SVHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"2/categories/%d/videos.json",category] parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+        NSLog(@"%@",JSON);
+        
+        _videos = [[NSMutableArray alloc] init];
+        
+        for(NSDictionary* object in JSON)
+        {
+            NSDictionary *video = [object objectForKey:@"video"];
+            [_videos addObject:video];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please check your internet connection" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }];
+    
+}
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -99,12 +128,23 @@
         }
         
     }
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"didUpgrade"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"didUpgrade"];
+        self.navigationItem.rightBarButtonItem = nil;
+        self.category = self.category + 7;
+        [self fetchProVideos];
+    }
     
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - Table view data source

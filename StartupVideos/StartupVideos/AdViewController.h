@@ -19,6 +19,7 @@
     IBOutlet UIButton *closeButton;
     BOOL wasClicked;
     IBOutlet WebViewController *webViewController;
+    BOOL didUpgrade;
 }
 -(IBAction)adButtonClicked:(id)sender;
 -(IBAction)closeButtonClicked:(id)sender;

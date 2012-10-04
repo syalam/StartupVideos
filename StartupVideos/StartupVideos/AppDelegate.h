@@ -11,11 +11,9 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AdWhirlView.h"
-#import "CategoryViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate> {
-    CategoryViewController *homeViewController;
     
 }
 -(void)startPlayerAfterDelayPause;

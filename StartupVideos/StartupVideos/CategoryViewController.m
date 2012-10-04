@@ -54,16 +54,39 @@
         self.navigationItem.rightBarButtonItem = moreBtnItem;
 
     }
-    UIImage *image1 = [UIImage imageNamed:@"theIdea"];
-    UIImage *image2 = [UIImage imageNamed:@"lean"];
-    UIImage *image3 = [UIImage imageNamed:@"product"];
-    UIImage *image4 = [UIImage imageNamed:@"marketing"];
-    UIImage *image5 = [UIImage imageNamed:@"sales"];
-    UIImage *image6 = [UIImage imageNamed:@"team"];
-    UIImage *image7 = [UIImage imageNamed:@"entrepreneurship"];
+    UIImage *image1 = [[UIImage alloc]init];
+    image1 = [UIImage imageNamed:@"theIdea"];
+    UIImage *image2 = [[UIImage alloc]init];
+    image2 = [UIImage imageNamed:@"lean"];
+    UIImage *image3 = [[UIImage alloc]init];
+    image3 = [UIImage imageNamed:@"product"];
+    UIImage *image4 = [[UIImage alloc]init];
+    image4 = [UIImage imageNamed:@"marketing"];
+    UIImage *image5 = [[UIImage alloc]init];
+    image5 = [UIImage imageNamed:@"sales"];
+    UIImage *image6 = [[UIImage alloc]init];
+    image6 = [UIImage imageNamed:@"team"];
+    UIImage *image7 = [[UIImage alloc]init];
+    image7 = [UIImage imageNamed:@"entrepreneurship"];
     thumbnails = [[NSArray alloc]initWithObjects:image1, image2, image3, image4, image5, image6, image7, nil];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        [self fetchProCategories];
+    }
+    else {
+        [self fetchCategories];
+    }
 
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"didUpgrade"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"didUpgrade"];
+        self.navigationItem.rightBarButtonItem = nil;
+        [self fetchProCategories];
+    }
+}
+
 -(void)upgradeButtonClicked:(id)sender {
     //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade" message:@"Upgrade to pro to disable ads" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     //[alert show];
@@ -85,7 +108,6 @@
             NSDictionary *category = [object objectForKey:@"category"];
             [_categories addObject:category];
         }
-        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -94,6 +116,32 @@
     }];
 
 }
+
+-(void)fetchProCategories {
+    [[SVHTTPClient sharedClient] getPath:@"2/categories.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON){
+        NSLog(@"%@",JSON);
+        if (_categories) {
+            [_categories removeAllObjects];
+        }
+        else {
+            _categories = [[NSMutableArray alloc] init];
+        }
+        
+        for(NSDictionary* object in JSON)
+        {
+            NSDictionary *category = [object objectForKey:@"category"];
+            [_categories addObject:category];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please check your internet connection" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }];
+    
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -101,14 +149,14 @@
     // e.g. self.myOutlet = nil;
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - Table view data source
@@ -146,9 +194,9 @@
 
         if (indexPath.row < _categories.count)
         {
-            cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            //cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            cell.thumbnailImage.image = [thumbnails objectAtIndex:indexPath.row];
             cell.playicon.image = [UIImage imageNamed:@"playicon"];
-            [cell.thumbnailImage setImage:[thumbnails objectAtIndex:indexPath.row]];
             /*if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
             {
                 NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
@@ -222,7 +270,12 @@
 {
     if (indexPath.row < _categories.count) {
         CategoryDetailViewController* cdvc = [[CategoryDetailViewController alloc] initWithNibName:@"CategoryDetailViewController" bundle:nil];
-        cdvc.category = indexPath.row+1;
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+            cdvc.category = indexPath.row + _categories.count + 1;
+        }
+        else {
+            cdvc.category = indexPath.row+1;
+        }
         [self.navigationController pushViewController:cdvc animated:YES];
     }
 }
@@ -231,26 +284,6 @@
 {
     return 82;
 }
-
-#pragma mark - UIAlertView Delegate Methods
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        [PFPurchase buyProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(NSError *error) {
-            if (!error) {
-                self.navigationItem.leftBarButtonItem = nil;
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade Complete" message:@"Upgrade successful" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                
-                
-                //See AppDelegate.m
-                /*AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-                [delegate.adWhirlView removeFromSuperview];*/
-                
-            }
-        }];
-    }
-}
-
 
 
 
