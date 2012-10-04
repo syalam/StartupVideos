@@ -35,6 +35,10 @@
 		1A25CE0915CA0AD6008C8BDF /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A25CE0715CA0AD6008C8BDF /* splash@2x.png */; };
 		1A33B85E15DF63C20029D428 /* tableviewbg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A33B85C15DF63C10029D428 /* tableviewbg2.png */; };
 		1A33B85F15DF63C20029D428 /* tableviewbg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A33B85D15DF63C10029D428 /* tableviewbg2@2x.png */; };
+		1A553652161D599B000574FB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A55364C161D599B000574FB /* IAPHelper.m */; };
+		1A553655161D599B000574FB /* InAppZapIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A553651161D599B000574FB /* InAppZapIAPHelper.m */; };
+		1A553659161D6229000574FB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A553656161D6229000574FB /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1A55365A161D6229000574FB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A553657161D6229000574FB /* SVProgressHUD.bundle */; };
 		1A9A5A5D1601D5D400A3EAC2 /* fwd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */; };
 		1A9A5A5E1601D5D400A3EAC2 /* prev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */; };
 		1A9A5A621603E96600A3EAC2 /* Upsell 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A601603E96600A3EAC2 /* Upsell 100.png */; };
@@ -185,6 +189,13 @@
 		1A25CE0715CA0AD6008C8BDF /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		1A33B85C15DF63C10029D428 /* tableviewbg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbg2.png; sourceTree = "<group>"; };
 		1A33B85D15DF63C10029D428 /* tableviewbg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableviewbg2@2x.png"; sourceTree = "<group>"; };
+		1A55364B161D599B000574FB /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		1A55364C161D599B000574FB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		1A553650161D599B000574FB /* InAppZapIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppZapIAPHelper.h; sourceTree = "<group>"; };
+		1A553651161D599B000574FB /* InAppZapIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppZapIAPHelper.m; sourceTree = "<group>"; };
+		1A553656161D6229000574FB /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		1A553657161D6229000574FB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		1A553658161D6229000574FB /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fwd@2x.png"; sourceTree = "<group>"; };
 		1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prev@2x.png"; sourceTree = "<group>"; };
 		1A9A5A601603E96600A3EAC2 /* Upsell 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Upsell 100.png"; sourceTree = "<group>"; };
@@ -388,10 +399,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE34A2D15D0F34700745C29 /* StoreKit.framework in Frameworks */,
 				1AE34A1F15CFB39600745C29 /* MobileCoreServices.framework in Frameworks */,
 				1AE34A3115D0F3B200745C29 /* libz.1.1.3.dylib in Frameworks */,
 				1AE34A2F15D0F38500745C29 /* CFNetwork.framework in Frameworks */,
-				1AE34A2D15D0F34700745C29 /* StoreKit.framework in Frameworks */,
 				1AE34A2115CFB3D500745C29 /* libGoogleAdMobAds.a in Frameworks */,
 				1AE34A1D15CFB38200745C29 /* Security.framework in Frameworks */,
 				1AE34A1B15CFB37300745C29 /* QuartzCore.framework in Frameworks */,
@@ -418,6 +429,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A553649161D5974000574FB /* In App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				1A55364B161D599B000574FB /* IAPHelper.h */,
+				1A55364C161D599B000574FB /* IAPHelper.m */,
+				1A553650161D599B000574FB /* InAppZapIAPHelper.h */,
+				1A553651161D599B000574FB /* InAppZapIAPHelper.m */,
+			);
+			name = "In App Purchase";
+			sourceTree = "<group>";
+		};
 		1AB3688815FD8B7E00D5DB64 /* Fullscreen ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +675,7 @@
 		8C59410515AFBBD600410B63 /* StartupVideos */ = {
 			isa = PBXGroup;
 			children = (
+				1A553649161D5974000574FB /* In App Purchase */,
 				1AB3688815FD8B7E00D5DB64 /* Fullscreen ads */,
 				8C59415215AFCA5F00410B63 /* Helpers */,
 				8C59414215AFC0DD00410B63 /* Category */,
@@ -803,6 +826,9 @@
 		8C59415215AFCA5F00410B63 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1A553656161D6229000574FB /* SVProgressHUD.m */,
+				1A553657161D6229000574FB /* SVProgressHUD.bundle */,
+				1A553658161D6229000574FB /* SVProgressHUD.h */,
 				1AE349E715CFB15D00745C29 /* TouchJSON */,
 				1AE349E215CFB11A00745C29 /* Admob */,
 				1AE3494515CFB0F300745C29 /* Greystripe */,
@@ -983,6 +1009,7 @@
 				1A9A5A5E1601D5D400A3EAC2 /* prev@2x.png in Resources */,
 				1A9A5A621603E96600A3EAC2 /* Upsell 100.png in Resources */,
 				1A9A5A631603E96600A3EAC2 /* Upsell 100@2x.png in Resources */,
+				1A55365A161D6229000574FB /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,6 +1076,9 @@
 				1AB368BC15FE054E00D5DB64 /* WebViewController.m in Sources */,
 				1AB368C015FE079800D5DB64 /* Reachability.m in Sources */,
 				1AB368CA15FE1B1C00D5DB64 /* CategoryDetailCell.m in Sources */,
+				1A553652161D599B000574FB /* IAPHelper.m in Sources */,
+				1A553655161D599B000574FB /* InAppZapIAPHelper.m in Sources */,
+				1A553659161D6229000574FB /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

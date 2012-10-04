@@ -9,6 +9,10 @@
 #import "AdViewController.h"
 #import <Parse/Parse.h>
 #import "CategoryViewController.h"
+#import "InAppZapIAPHelper.h"
+#import "Reachability.h"
+#import "SVProgressHUD.h"
+
 
 @interface AdViewController ()
 
@@ -38,8 +42,22 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [SVProgressHUD dismiss];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.adWhirlView removeFromSuperview];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsLoaded:) name:kProductsLoadedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:kProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(productPurchaseFailed:) name:kProductPurchaseFailedNotification object: nil];
+    
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    NetworkStatus netStatus = [reach currentReachabilityStatus];
+    if (netStatus == NotReachable) {
+        NSLog(@"No internet connection!");
+    } else {
+                    
+    }
+
 }
 
 - (void)viewDidUnload
@@ -147,24 +165,89 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [PFPurchase buyProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(NSError *error) {
+        SKProduct *product = [[InAppZapIAPHelper sharedHelper].products objectAtIndex:0];
+        
+        NSLog(@"Buying %@...", product.productIdentifier);
+        //[[InAppZapIAPHelper sharedHelper] buyProductIdentifier:product.productIdentifier];
+        InAppZapIAPHelper *purchaseHelper = [[InAppZapIAPHelper alloc]init];
+        [purchaseHelper buyProductIdentifier:product.productIdentifier];
+        [self performSelector:@selector(timeout:) withObject:nil afterDelay:60*5];
+        /*[PFPurchase buyProduct:@"28V8W66Z7L.com.videolark.StartupMarketingVideos.Pro" block:^(NSError *error) {
             if (!error) {
                 self.navigationItem.leftBarButtonItem = nil;
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade Complete" message:@"Upgrade successful" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
-                
-                
-                //See AppDelegate.m
-                /*AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-                 [delegate.adWhirlView removeFromSuperview];*/
                 
             }
             else {
                 NSLog (@"%@",[error localizedDescription]);
             }
          
-        }];
+        }];*/
     }
+}
+#pragma mark - Helper Methods
+- (void)productPurchaseFailed:(NSNotification *)notification {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [SVProgressHUD dismiss];
+    
+    SKPaymentTransaction * transaction = (SKPaymentTransaction *) notification.object;
+    if (transaction.error.code != SKErrorPaymentCancelled) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                        message:transaction.error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+    
+}
+
+- (void)dismissHUD:(id)arg {
+    
+    ///[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    //self.hud = nil;
+    [SVProgressHUD dismiss];
+    
+}
+
+- (void)productsLoaded:(NSNotification *)notification {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [SVProgressHUD dismiss];
+    
+    
+}
+
+- (void)timeout:(id)arg {
+    
+    /*_hud.labelText = @"Timeout!";
+     _hud.detailsLabelText = @"Please try again later.";
+     _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+     _hud.mode = MBProgressHUDModeCustomView;*/
+    [SVProgressHUD dismissWithError:@"Please Try Again Later"];
+    [self performSelector:@selector(dismissHUD:) withObject:nil afterDelay:3.0];
+    
+}
+
+- (void)updateInterfaceWithReachability: (Reachability*) curReach {
+    
+    
+    
+}
+
+- (void)productPurchased:(NSNotification *)notification {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [SVProgressHUD dismiss];
+    
+    NSString *productIdentifier = (NSString *) notification.object;
+    NSLog(@"Purchased: %@", productIdentifier);
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"proPackage"];
+    
 }
 
 
