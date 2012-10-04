@@ -341,14 +341,14 @@
 		8C22A63E15B465970053F951 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = StartupVideos/CategoryDetailViewController.h; sourceTree = "<group>"; };
 		8C22A63F15B465970053F951 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = StartupVideos/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		8C22A64015B465970053F951 /* CategoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryDetailViewController.xib; path = StartupVideos/CategoryDetailViewController.xib; sourceTree = "<group>"; };
-		8C5940FB15AFBBD600410B63 /* StartupVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartupVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5940FB15AFBBD600410B63 /* StartupMarketingVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartupMarketingVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5940FF15AFBBD600410B63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8C59410115AFBBD600410B63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8C59410315AFBBD600410B63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8C59410715AFBBD600410B63 /* StartupVideos-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StartupVideos-Info.plist"; sourceTree = "<group>"; };
+		8C59410715AFBBD600410B63 /* StartupMarketingVideos-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StartupMarketingVideos-Info.plist"; sourceTree = "<group>"; };
 		8C59410915AFBBD600410B63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C59410B15AFBBD600410B63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8C59410D15AFBBD600410B63 /* StartupVideos-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StartupVideos-Prefix.pch"; sourceTree = "<group>"; };
+		8C59410D15AFBBD600410B63 /* StartupMarketingVideos-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StartupMarketingVideos-Prefix.pch"; sourceTree = "<group>"; };
 		8C59410E15AFBBD600410B63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8C59410F15AFBBD600410B63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8C59411115AFBBD600410B63 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -652,7 +652,7 @@
 		8C5940FC15AFBBD600410B63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C5940FB15AFBBD600410B63 /* StartupVideos.app */,
+				8C5940FB15AFBBD600410B63 /* StartupMarketingVideos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -706,10 +706,10 @@
 			children = (
 				1AB3687A15FCF00000D5DB64 /* MyriadPro-SemiboldIt.otf */,
 				8C59412515AFBC9700410B63 /* Images */,
-				8C59410715AFBBD600410B63 /* StartupVideos-Info.plist */,
+				8C59410715AFBBD600410B63 /* StartupMarketingVideos-Info.plist */,
 				8C59410815AFBBD600410B63 /* InfoPlist.strings */,
 				8C59410B15AFBBD600410B63 /* main.m */,
-				8C59410D15AFBBD600410B63 /* StartupVideos-Prefix.pch */,
+				8C59410D15AFBBD600410B63 /* StartupMarketingVideos-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -916,9 +916,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C5940FA15AFBBD600410B63 /* StartupVideos */ = {
+		8C5940FA15AFBBD600410B63 /* StartupMarketingVideos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C59411915AFBBD600410B63 /* Build configuration list for PBXNativeTarget "StartupVideos" */;
+			buildConfigurationList = 8C59411915AFBBD600410B63 /* Build configuration list for PBXNativeTarget "StartupMarketingVideos" */;
 			buildPhases = (
 				8C5940F715AFBBD600410B63 /* Sources */,
 				8C5940F815AFBBD600410B63 /* Frameworks */,
@@ -928,9 +928,9 @@
 			);
 			dependencies = (
 			);
-			name = StartupVideos;
+			name = StartupMarketingVideos;
 			productName = StartupVideos;
-			productReference = 8C5940FB15AFBBD600410B63 /* StartupVideos.app */;
+			productReference = 8C5940FB15AFBBD600410B63 /* StartupMarketingVideos.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -941,7 +941,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 8C5940F515AFBBD600410B63 /* Build configuration list for PBXProject "StartupVideos" */;
+			buildConfigurationList = 8C5940F515AFBBD600410B63 /* Build configuration list for PBXProject "StartupMarketingVideos" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -953,7 +953,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C5940FA15AFBBD600410B63 /* StartupVideos */,
+				8C5940FA15AFBBD600410B63 /* StartupMarketingVideos */,
 			);
 		};
 /* End PBXProject section */
@@ -1193,8 +1193,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StartupVideos/StartupVideos-Prefix.pch";
-				INFOPLIST_FILE = "StartupVideos/StartupVideos-Info.plist";
+				GCC_PREFIX_HEADER = "StartupVideos/StartupMarketingVideos-Prefix.pch";
+				INFOPLIST_FILE = "StartupVideos/StartupMarketingVideos-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1\"",
@@ -1203,7 +1203,7 @@
 					"\"$(SRCROOT)/StartupVideos\"",
 				);
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StartupMarketingVideos;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALID_ARCHS = armv7;
@@ -1221,8 +1221,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StartupVideos/StartupVideos-Prefix.pch";
-				INFOPLIST_FILE = "StartupVideos/StartupVideos-Info.plist";
+				GCC_PREFIX_HEADER = "StartupVideos/StartupMarketingVideos-Prefix.pch";
+				INFOPLIST_FILE = "StartupVideos/StartupMarketingVideos-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1\"",
@@ -1231,7 +1231,7 @@
 					"\"$(SRCROOT)/StartupVideos\"",
 				);
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StartupMarketingVideos;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALID_ARCHS = armv7;
@@ -1242,7 +1242,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C5940F515AFBBD600410B63 /* Build configuration list for PBXProject "StartupVideos" */ = {
+		8C5940F515AFBBD600410B63 /* Build configuration list for PBXProject "StartupMarketingVideos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C59411715AFBBD600410B63 /* Debug */,
@@ -1251,7 +1251,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C59411915AFBBD600410B63 /* Build configuration list for PBXNativeTarget "StartupVideos" */ = {
+		8C59411915AFBBD600410B63 /* Build configuration list for PBXNativeTarget "StartupMarketingVideos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C59411A15AFBBD600410B63 /* Debug */,
