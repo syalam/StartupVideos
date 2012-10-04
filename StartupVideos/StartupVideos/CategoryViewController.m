@@ -54,7 +54,15 @@
         self.navigationItem.rightBarButtonItem = moreBtnItem;
 
     }
-        [self fetchCategories];
+    UIImage *image1 = [UIImage imageNamed:@"theIdea"];
+    UIImage *image2 = [UIImage imageNamed:@"lean"];
+    UIImage *image3 = [UIImage imageNamed:@"product"];
+    UIImage *image4 = [UIImage imageNamed:@"marketing"];
+    UIImage *image5 = [UIImage imageNamed:@"sales"];
+    UIImage *image6 = [UIImage imageNamed:@"team"];
+    UIImage *image7 = [UIImage imageNamed:@"entrepreneurship"];
+    thumbnails = [[NSArray alloc]initWithObjects:image1, image2, image3, image4, image5, image6, image7, nil];
+
 }
 -(void)upgradeButtonClicked:(id)sender {
     //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Upgrade" message:@"Upgrade to pro to disable ads" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -140,7 +148,8 @@
         {
             cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
             cell.playicon.image = [UIImage imageNamed:@"playicon"];
-            if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
+            [cell.thumbnailImage setImage:[thumbnails objectAtIndex:indexPath.row]];
+            /*if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
             {
                 NSArray *catThumb = [[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"];
                 
@@ -149,7 +158,8 @@
                 NSString *catThumbUrl = [catThumb2 valueForKey:@"category_thumbnail_url"];
                 [cell.thumbnailImage reloadWithUrl:catThumbUrl];
                 
-            }
+                
+            }*/
             
             // Configure the cell...
             cell.titleLabel.text = [[_categories objectAtIndex:indexPath.row] valueForKey:@"category_name"];

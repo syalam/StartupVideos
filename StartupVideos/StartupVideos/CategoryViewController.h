@@ -12,6 +12,7 @@
 {
     NSMutableArray* _categories;
     NSMutableArray* _counts;
+    NSArray *thumbnails;
 }
 
 @end
