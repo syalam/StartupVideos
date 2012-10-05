@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
      if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
          appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
          [appDelegate.adWhirlView removeFromSuperview];
@@ -26,6 +27,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self loadSplash];
     self.navigationController.navigationBar.hidden = YES;
+    appDelegate.isMovieView = NO;
     [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:2.0];
 }
 
@@ -43,9 +45,13 @@
 
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+/*- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return interfaceOrientation == UIInterfaceOrientationPortrait;
+}*/
+-(BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 -(NSUInteger)supportedInterfaceOrientations

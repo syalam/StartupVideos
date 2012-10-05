@@ -39,7 +39,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
     self.navigationController.navigationBar.hidden = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"startupvideoNavigationbar"] forBarMetrics:UIBarMetricsDefault];
 
@@ -79,6 +80,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    appDelegate.isMovieView = NO;
     self.navigationController.navigationBar.hidden = NO;
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"didUpgrade"]) {
         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"didUpgrade"];

@@ -31,6 +31,7 @@
     self.moviePlayer.useApplicationAudioSession = NO;
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     delegate.moviePlayer = self.moviePlayer;
+    delegate.isMovieView = YES;
     // Do any additional setup after loading the view from its nib.
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -78,9 +79,14 @@
     return YES;
 }
 
--(NSUInteger)supportedInterfaceOrientations
-{
+-(NSUInteger) supportedInterfaceOrientations {
+    
     return UIInterfaceOrientationMaskAll;
+}
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 #pragma mark - Notification Handlers

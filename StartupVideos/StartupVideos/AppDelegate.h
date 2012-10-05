@@ -22,5 +22,6 @@
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) AdWhirlView *adWhirlView;
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+@property BOOL isMovieView;
 
 @end

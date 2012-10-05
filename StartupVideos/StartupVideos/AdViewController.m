@@ -35,6 +35,7 @@
     [self loadSplash];
     self.navigationController.navigationBar.hidden = YES;
     [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:5.0];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     
 }
@@ -42,6 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    appDelegate.isMovieView = NO;
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.adWhirlView removeFromSuperview];
 
@@ -133,6 +135,7 @@
         wasClicked = YES;
         [self presentModalViewController:webViewController animated:YES];
         webViewController.delegate = self;
+        appDelegate.isMovieView = YES;
         [webViewController loadBrowser: [NSURL URLWithString:[urlArray objectAtIndex:index]]];
     }
     else {

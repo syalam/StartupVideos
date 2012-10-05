@@ -118,7 +118,13 @@
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationLandscapeRight | UIInterfaceOrientationLandscapeLeft;
+    if (_isMovieView) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
 }
 
 

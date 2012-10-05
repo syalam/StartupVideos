@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+
     UIImage *chapterBtnImage = [UIImage imageNamed:@"backBtn"];
     UIButton *chapterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     chapterBtn.bounds = CGRectMake( 0, 0, chapterBtnImage.size.width, chapterBtnImage.size.height );
@@ -118,6 +121,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    appDelegate.isMovieView = NO;
     self.navigationController.navigationBar.hidden = NO;
     if (wasPopped && ![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
         wasPopped = NO;
