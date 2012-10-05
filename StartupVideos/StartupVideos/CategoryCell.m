@@ -28,7 +28,7 @@
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 5, 200, 32)];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        self.titleLabel.textColor = [UIColor colorWithRed:26/255 green:26/255 blue:26/255 alpha:1];
+        self.titleLabel.textColor = [UIColor colorWithRed:0.137 green:0.137 blue:0.137 alpha:1];
         
         
         self.videoCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 25, 200, 32)];

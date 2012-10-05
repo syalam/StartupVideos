@@ -18,28 +18,27 @@
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         self.thumbnailImage = [[TCImageView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
-        self.playicon = [[UIImageView alloc]initWithFrame:CGRectMake(80, 34, 14, 16)];
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 5, 200, 32)];
+        
+        self.playicon = [[UIImageView alloc]initWithFrame:CGRectMake(33, 32, 17, 19)];
+        
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 7, 200, 50)];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        self.titleLabel.textColor = [UIColor colorWithRed:26/255 green:26/255 blue:26/255 alpha:1];
+        self.titleLabel.numberOfLines = 2;
+        self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+        //[self.titleLabel setEditable:NO];
+        self.titleLabel.textColor = [UIColor colorWithRed:0.137 green:0.137 blue:0.137 alpha:1];
         
+        self.duration = [[UILabel alloc] initWithFrame:CGRectMake(80, 40, 200, 32)];
+        self.duration.backgroundColor = [UIColor clearColor];
+        self.duration.font = [UIFont fontWithName:@"Helvetica" size:12];
+        self.duration.textColor = [UIColor grayColor];
         
-        self.videoCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 25, 200, 32)];
-        self.videoCountLabel.backgroundColor = [UIColor clearColor];
-        self.videoCountLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-        self.videoCountLabel.textColor = [UIColor grayColor];
-        
-        self.chapterLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 45, 200, 32)];
-        self.chapterLabel.backgroundColor = [UIColor clearColor];
-        self.chapterLabel.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:12];
-        self.chapterLabel.textColor = [UIColor colorWithRed:0 green:0.525 blue:0.761 alpha:1];
     }
     
     [self.contentView addSubview:self.thumbnailImage];
     [self.contentView addSubview:self.titleLabel];
-    [self.contentView addSubview:self.videoCountLabel];
-    [self.contentView addSubview:self.chapterLabel];
+    [self.contentView addSubview:self.duration];
     [self.contentView addSubview:self.playicon];
     return self;
 }

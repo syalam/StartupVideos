@@ -14,11 +14,7 @@
 
 @property(nonatomic,retain)    TCImageView* thumbnailImage;
 @property(nonatomic,retain)    UILabel* titleLabel;
-@property(nonatomic,retain)    UILabel* videoCountLabel;
-@property(nonatomic,retain)    UILabel* chapterLabel;
 @property(nonatomic,retain) UIImageView *playicon;
-
-@property(nonatomic, retain) UILabel* titleLabel2;
 @property(nonatomic, retain) UILabel* duration;
 
 

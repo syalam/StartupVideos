@@ -7,7 +7,7 @@
 //
 
 #import "CategoryDetailViewController.h"
-#import "CategoryCell.h"
+#import "CategoryDetailCell.h"
 #import "SVHTTPClient.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AdViewController.h"
@@ -179,12 +179,14 @@
     else {
         CellIdentifier = @"LastCell";
     }
-    CategoryCell *cell = (CategoryCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CategoryDetailCell *cell = (CategoryDetailCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = nil;
     if (cell == nil) {
-        cell = [[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CategoryDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         if (indexPath.row < _videos.count && _videos.count != 0)
         {
             cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
+            [cell.playicon setImage:[UIImage imageNamed:@"playicon2"]];
             if ([[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"])
             {
                 NSArray *videoThumb = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_thumbnails"];
@@ -193,11 +195,16 @@
                 NSDictionary *videoThumb2 = [videoThumb1 objectForKey:@"video_thumbnail"];
                 NSString *videoThumbUrl = [videoThumb2 valueForKey:@"video_thumbnail_url"];
                 [cell.thumbnailImage reloadWithUrl:videoThumbUrl];
+
             
             }
             // Configure the cell...
             cell.titleLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"video_name"];
-            cell.videoCountLabel.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"duration"];
+            //[cell.titleLabel setFrame:CGRectMake(cell.titleLabel.frame.origin.x, cell.titleLabel.frame.origin.y, cell.titleLabel.frame.size.width, cell.titleLabel.contentSize.height)];
+            [cell.titleLabel sizeToFit];
+            cell.duration.text = [[_videos objectAtIndex:indexPath.row] valueForKey:@"duration"];
+            [cell.duration setFrame:CGRectMake(cell.duration.frame.origin.x, cell.titleLabel.frame.origin.y + cell.titleLabel.frame.size.height, cell.duration.frame.size.width, cell.duration.frame.size.height)];
+            
         }
         else
         {

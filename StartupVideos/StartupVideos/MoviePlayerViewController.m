@@ -60,7 +60,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+     self.navigationController.navigationBar.hidden = YES;
+ 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -92,27 +93,45 @@
 #pragma mark - Notification Handlers
 -(void)moviePlayBackStateDidChange:(id)sender
 {
-    if (self.moviePlayer.currentPlaybackTime != self.moviePlayer.duration) {
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
+        if (self.moviePlayer.currentPlaybackTime != self.moviePlayer.duration) {
+            
+            [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
+            [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey: @"lastPlayed"];
+            self.moviePlayer.initialPlaybackTime = self.moviePlayer.currentPlaybackTime;
+            
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults]setFloat:0 forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
+            self.moviePlayer.initialPlaybackTime = 0;
+        }
 
-        [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
-        self.moviePlayer.initialPlaybackTime = self.moviePlayer.currentPlaybackTime;
-        
     }
-    else {
-        [[NSUserDefaults standardUserDefaults]setFloat:0 forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
-        self.moviePlayer.initialPlaybackTime = 0;
-    }
-
+    
 }
 -(void)exitDuringVideo:(id)sender {
     //AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     //delegate.playbackTimeBeforeBackground = self.moviePlayer.currentPlaybackTime;
-    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"exitDuringVideo"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    [[NSUserDefaults standardUserDefaults]setValue:self.videoUrl forKey:@"videoUrl"];
-    [[NSUserDefaults standardUserDefaults]setInteger:self.videoNumber forKey:@"videoNumber"];
-    [[NSUserDefaults standardUserDefaults]setInteger:self.category forKey:@"category"];
-    
+    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused) {
+        if (self.moviePlayer.currentPlaybackTime != self.moviePlayer.duration) {
+            
+            [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
+            [[NSUserDefaults standardUserDefaults]setFloat:self.moviePlayer.currentPlaybackTime forKey: @"lastPlayed"];
+            self.moviePlayer.initialPlaybackTime = self.moviePlayer.currentPlaybackTime;
+            NSLog(@"playback time %0.00f", self.moviePlayer.initialPlaybackTime);
+            
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults]setFloat:0 forKey:[NSString stringWithFormat:@"%d-%d startTime",self.category, self.videoNumber]];
+            self.moviePlayer.initialPlaybackTime = 0;
+        }
+
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"exitDuringVideo"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[NSUserDefaults standardUserDefaults]setValue:self.videoUrl forKey:@"videoUrl"];
+        [[NSUserDefaults standardUserDefaults]setInteger:self.videoNumber forKey:@"videoNumber"];
+        [[NSUserDefaults standardUserDefaults]setInteger:self.category forKey:@"category"];
+    }
     [self.moviePlayer pause];
     
 }

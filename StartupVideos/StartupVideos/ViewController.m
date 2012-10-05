@@ -20,21 +20,25 @@
 {
     [super viewDidLoad];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
-         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-         [appDelegate.adWhirlView removeFromSuperview];
-     }
-	// Do any additional setup after loading the view, typically from a nib.
-    [self loadSplash];
-    self.navigationController.navigationBar.hidden = YES;
-    appDelegate.isMovieView = NO;
-    [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:2.0];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]) {
+        [appDelegate.adWhirlView removeFromSuperview];
+    }
+	// Do any additional setup after loading the view, typically from a nib.
+    [self loadSplash];
+    self.navigationController.navigationBar.hidden = YES;
+    appDelegate.isMovieView = NO;
+    [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:2.0];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

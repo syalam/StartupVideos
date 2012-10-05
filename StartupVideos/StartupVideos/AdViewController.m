@@ -30,13 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     adImage.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     adImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self loadSplash];
-    self.navigationController.navigationBar.hidden = YES;
-    [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:5.0];
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     
 }
 
@@ -44,8 +40,10 @@
 {
     [super viewWillAppear:animated];
     appDelegate.isMovieView = NO;
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.adWhirlView removeFromSuperview];
+    [self loadSplash];
+    self.navigationController.navigationBar.hidden = YES;
+    [self performSelector:@selector(fadeOut:) withObject:nil afterDelay:5.0];
 
 }
 

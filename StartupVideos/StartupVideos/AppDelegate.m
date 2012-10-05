@@ -72,18 +72,30 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"exitDuringVideo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.moviePlayer prepareToPlay];
+            [self.moviePlayer pause];
+        });
+        
+    }
+    
+    else if (![[NSUserDefaults standardUserDefaults]boolForKey:@"proPackage"]){
+        UINavigationController *myNavCon = (UINavigationController*)self.window.rootViewController;
+        NSArray *viewControllers = [myNavCon viewControllers];
+        [myNavCon popToViewController:[viewControllers objectAtIndex:viewControllers.count-2] animated:NO];
+        
+    }
+    
+
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
-        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"exitDuringVideo"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self.moviePlayer prepareToPlay];
-        [self.moviePlayer pause];
-    }
-
+        
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
