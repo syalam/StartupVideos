@@ -12,6 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AdWhirlView.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MoviePlayerViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, AdWhirlDelegate> {
     
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) AdWhirlView *adWhirlView;
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+@property (strong, nonatomic) MoviePlayerViewController *mpController;
 @property BOOL isMovieView;
 
 @end

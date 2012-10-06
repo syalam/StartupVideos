@@ -31,6 +31,7 @@
     self.moviePlayer.useApplicationAudioSession = NO;
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     delegate.moviePlayer = self.moviePlayer;
+    delegate.mpController = self;
     delegate.isMovieView = YES;
     // Do any additional setup after loading the view from its nib.
     
@@ -61,7 +62,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
      self.navigationController.navigationBar.hidden = YES;
- 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
