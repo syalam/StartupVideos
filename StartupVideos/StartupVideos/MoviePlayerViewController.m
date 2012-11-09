@@ -138,6 +138,8 @@
 - (void)MPMoviePlayerDidFinish:(NSNotification *)notification
 {    
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"exitDuringVideo"]) {
+        AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+        delegate.isMovieView = NO;
         [self dismissModalViewControllerAnimated:YES];
     }
     else {

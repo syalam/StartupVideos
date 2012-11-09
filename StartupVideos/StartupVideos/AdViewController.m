@@ -131,6 +131,7 @@
 -(IBAction)adButtonClicked:(id)sender {
     if (index < 8) {
         wasClicked = YES;
+        appDelegate.isMovieView = YES;
         [self presentModalViewController:webViewController animated:YES];
         webViewController.delegate = self;
         appDelegate.isMovieView = YES;
@@ -156,6 +157,7 @@
 }
 - (void) dismissWebView
 {
+    appDelegate.isMovieView = NO;
     [self dismissModalViewControllerAnimated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }

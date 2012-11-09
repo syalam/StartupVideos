@@ -43,7 +43,6 @@
 		1A553665161D6DCC000574FB /* product.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A55365E161D6DCC000574FB /* product.png */; };
 		1A553666161D6DCC000574FB /* sales.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A55365F161D6DCC000574FB /* sales.png */; };
 		1A553667161D6DCC000574FB /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A553660161D6DCC000574FB /* team.png */; };
-		1A553668161D6DCC000574FB /* theIdea.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A553661161D6DCC000574FB /* theIdea.png */; };
 		1A9A5A5D1601D5D400A3EAC2 /* fwd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */; };
 		1A9A5A5E1601D5D400A3EAC2 /* prev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */; };
 		1A9A5A621603E96600A3EAC2 /* Upsell 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A601603E96600A3EAC2 /* Upsell 100.png */; };
@@ -71,6 +70,7 @@
 		1AB368D815FEEB9900D5DB64 /* backBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB368D415FEEB9500D5DB64 /* backBtn@2x.png */; };
 		1AB368D915FEEB9900D5DB64 /* moreBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB368D515FEEB9700D5DB64 /* moreBtn.png */; };
 		1AB368DA15FEEB9900D5DB64 /* moreBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB368D615FEEB9800D5DB64 /* moreBtn@2x.png */; };
+		1ADF42AF162F1E9D00540D01 /* theIdea.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF42AE162F1E9D00540D01 /* theIdea.png */; };
 		1AE18BC2161F44EB007BD57F /* playicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE18BC0161F44EB007BD57F /* playicon2.png */; };
 		1AE18BC3161F44EB007BD57F /* playicon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE18BC1161F44EB007BD57F /* playicon2@2x.png */; };
 		1AE3492F15CFB0D700745C29 /* AdWhirlAdapterGoogleAdMobAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3490115CFB0D700745C29 /* AdWhirlAdapterGoogleAdMobAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -205,7 +205,6 @@
 		1A55365E161D6DCC000574FB /* product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product.png; sourceTree = "<group>"; };
 		1A55365F161D6DCC000574FB /* sales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sales.png; sourceTree = "<group>"; };
 		1A553660161D6DCC000574FB /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
-		1A553661161D6DCC000574FB /* theIdea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theIdea.png; sourceTree = "<group>"; };
 		1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fwd@2x.png"; sourceTree = "<group>"; };
 		1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prev@2x.png"; sourceTree = "<group>"; };
 		1A9A5A601603E96600A3EAC2 /* Upsell 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Upsell 100.png"; sourceTree = "<group>"; };
@@ -239,6 +238,7 @@
 		1AB368D415FEEB9500D5DB64 /* backBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backBtn@2x.png"; sourceTree = "<group>"; };
 		1AB368D515FEEB9700D5DB64 /* moreBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreBtn.png; sourceTree = "<group>"; };
 		1AB368D615FEEB9800D5DB64 /* moreBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moreBtn@2x.png"; sourceTree = "<group>"; };
+		1ADF42AE162F1E9D00540D01 /* theIdea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theIdea.png; sourceTree = "<group>"; };
 		1AE18BC0161F44EB007BD57F /* playicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playicon2.png; sourceTree = "<group>"; };
 		1AE18BC1161F44EB007BD57F /* playicon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playicon2@2x.png"; sourceTree = "<group>"; };
 		1AE3490015CFB0D700745C29 /* AdWhirlAdapterGoogleAdMobAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdWhirlAdapterGoogleAdMobAds.h; sourceTree = "<group>"; };
@@ -716,26 +716,6 @@
 		8C59412515AFBC9700410B63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1AE18BC0161F44EB007BD57F /* playicon2.png */,
-				1AE18BC1161F44EB007BD57F /* playicon2@2x.png */,
-				1A55365B161D6DCC000574FB /* entrepreneurship.png */,
-				1A55365C161D6DCC000574FB /* lean.png */,
-				1A55365D161D6DCC000574FB /* marketing.png */,
-				1A55365E161D6DCC000574FB /* product.png */,
-				1A55365F161D6DCC000574FB /* sales.png */,
-				1A553660161D6DCC000574FB /* team.png */,
-				1A553661161D6DCC000574FB /* theIdea.png */,
-				1A9A5A601603E96600A3EAC2 /* Upsell 100.png */,
-				1A9A5A611603E96600A3EAC2 /* Upsell 100@2x.png */,
-				1AB368D315FEEB9500D5DB64 /* backBtn.png */,
-				1AB368D415FEEB9500D5DB64 /* backBtn@2x.png */,
-				1AB368D515FEEB9700D5DB64 /* moreBtn.png */,
-				1AB368D615FEEB9800D5DB64 /* moreBtn@2x.png */,
-				1AB368C515FE0EFE00D5DB64 /* CloseButton.png */,
-				1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */,
-				1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */,
-				1AB368C115FE0AD900D5DB64 /* fwd.png */,
-				1AB368C215FE0ADA00D5DB64 /* prev.png */,
 				1AB3689E15FDB1A800D5DB64 /* ad1maxcdn.png */,
 				1AB3689F15FDB1A800D5DB64 /* ad2kissmetrics.png */,
 				1AB368A015FDB1A800D5DB64 /* ad3contestdomination.png */,
@@ -744,12 +724,32 @@
 				1AB368A315FDB1A800D5DB64 /* ad6buffer.png */,
 				1AB368A415FDB1A800D5DB64 /* ad7spyfu.png */,
 				1AB368A515FDB1A800D5DB64 /* ad8slidedeck.png */,
-				1A0A732615F9120B00603A0F /* playicon.png */,
-				1A0A732715F9120C00603A0F /* playicon@2x.png */,
+				8C59412415AFBC8C00410B63 /* App Icon */,
+				1AB368D315FEEB9500D5DB64 /* backBtn.png */,
+				1AB368D415FEEB9500D5DB64 /* backBtn@2x.png */,
+				8C59414715AFC6E500410B63 /* bg.png */,
+				8C59414815AFC6E500410B63 /* bg@2x.png */,
 				1A0A731A15F8A45F00603A0F /* chapterbtn.png */,
 				1A0A731B15F8A45F00603A0F /* chapterbtn@2x.png */,
+				1AB368C515FE0EFE00D5DB64 /* CloseButton.png */,
+				1A55365B161D6DCC000574FB /* entrepreneurship.png */,
+				1AB368C115FE0AD900D5DB64 /* fwd.png */,
+				1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */,
+				1A55365C161D6DCC000574FB /* lean.png */,
+				1A55365D161D6DCC000574FB /* marketing.png */,
+				1AB368D515FEEB9700D5DB64 /* moreBtn.png */,
+				1AB368D615FEEB9800D5DB64 /* moreBtn@2x.png */,
 				1A0A72EB15F892A400603A0F /* navBar.png */,
 				1A0A72EC15F892A400603A0F /* navBar@2x.png */,
+				1A0A732615F9120B00603A0F /* playicon.png */,
+				1AE18BC0161F44EB007BD57F /* playicon2.png */,
+				1AE18BC1161F44EB007BD57F /* playicon2@2x.png */,
+				1A0A732715F9120C00603A0F /* playicon@2x.png */,
+				1AB368C215FE0ADA00D5DB64 /* prev.png */,
+				1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */,
+				1A55365E161D6DCC000574FB /* product.png */,
+				1A55365F161D6DCC000574FB /* sales.png */,
+				1A25CE0615CA0AD6008C8BDF /* splash.png */,
 				1A0A72ED15F892A400603A0F /* splash2.png */,
 				1A0A72EE15F892A400603A0F /* splash2@2x.png */,
 				1A0A72EF15F892A400603A0F /* splash3.png */,
@@ -764,19 +764,19 @@
 				1A0A72F815F892A400603A0F /* splash7@2x.png */,
 				1A0A72F915F892A400603A0F /* splash8.png */,
 				1A0A72FA15F892A400603A0F /* splash8@2x.png */,
-				1A0A72FB15F892A400603A0F /* title.png */,
-				1A0A72FC15F892A400603A0F /* title@2x.png */,
+				1A25CE0715CA0AD6008C8BDF /* splash@2x.png */,
 				1A1BDE3715EA6C5B0047D929 /* startupvideoNavigationbar.png */,
 				1A1BDE3815EA6C5B0047D929 /* startupvideoNavigationbar@2x.png */,
+				8C97060015B806B3000F19C4 /* tableviewbg.png */,
 				1A33B85C15DF63C10029D428 /* tableviewbg2.png */,
 				1A33B85D15DF63C10029D428 /* tableviewbg2@2x.png */,
-				8C97060015B806B3000F19C4 /* tableviewbg.png */,
 				8C97060115B806B3000F19C4 /* tableviewbg@2x.png */,
-				8C59414715AFC6E500410B63 /* bg.png */,
-				8C59414815AFC6E500410B63 /* bg@2x.png */,
-				1A25CE0615CA0AD6008C8BDF /* splash.png */,
-				1A25CE0715CA0AD6008C8BDF /* splash@2x.png */,
-				8C59412415AFBC8C00410B63 /* App Icon */,
+				1ADF42AE162F1E9D00540D01 /* theIdea.png */,
+				1A553660161D6DCC000574FB /* team.png */,
+				1A0A72FB15F892A400603A0F /* title.png */,
+				1A0A72FC15F892A400603A0F /* title@2x.png */,
+				1A9A5A601603E96600A3EAC2 /* Upsell 100.png */,
+				1A9A5A611603E96600A3EAC2 /* Upsell 100@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1025,9 +1025,9 @@
 				1A553665161D6DCC000574FB /* product.png in Resources */,
 				1A553666161D6DCC000574FB /* sales.png in Resources */,
 				1A553667161D6DCC000574FB /* team.png in Resources */,
-				1A553668161D6DCC000574FB /* theIdea.png in Resources */,
 				1AE18BC2161F44EB007BD57F /* playicon2.png in Resources */,
 				1AE18BC3161F44EB007BD57F /* playicon2@2x.png in Resources */,
+				1ADF42AF162F1E9D00540D01 /* theIdea.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1126,8 +1126,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1142,8 +1142,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "B9AB013D-8474-4167-8792-ABF43384117E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9AB013D-8474-4167-8792-ABF43384117E";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1154,8 +1154,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1164,8 +1164,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "B9AB013D-8474-4167-8792-ABF43384117E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9AB013D-8474-4167-8792-ABF43384117E";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1174,8 +1174,8 @@
 		8C59411A15AFBBD600410B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1192,8 +1192,8 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = StartupMarketingVideos;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "B9AB013D-8474-4167-8792-ABF43384117E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9AB013D-8474-4167-8792-ABF43384117E";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1202,8 +1202,8 @@
 		8C59411B15AFBBD600410B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Smith (LVRVLCS6N5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1220,8 +1220,8 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = StartupMarketingVideos;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "B9AB013D-8474-4167-8792-ABF43384117E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9AB013D-8474-4167-8792-ABF43384117E";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

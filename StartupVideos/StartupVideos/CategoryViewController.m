@@ -199,6 +199,7 @@
         {
             //cell.thumbnailImage.image = [UIImage imageNamed:@"Icon"];
             cell.thumbnailImage.image = [thumbnails objectAtIndex:indexPath.row];
+            [cell.thumbnailImage setContentMode:UIViewContentModeScaleAspectFit];
             cell.playicon.image = [UIImage imageNamed:@"playicon"];
             /*if ([[_categories objectAtIndex:indexPath.row]objectForKey:@"category_thumbnails"])
             {
