@@ -265,8 +265,10 @@
     {
         videoNumber = indexPath.row+1;
         videoPath = [[_videos objectAtIndex:indexPath.row]objectForKey:@"video_url"];
-        LBYouTubePlayerViewController *LBplayer = [[LBYouTubePlayerViewController alloc]initWithYouTubeURL:[NSURL URLWithString:videoPath]];
-        LBplayer.delegate = self;
+
+        LBYouTubeExtractor *extractor = [[LBYouTubeExtractor alloc]initWithURL:[NSURL URLWithString:videoPath] quality:LBYouTubeVideoQualityLarge];
+        extractor.delegate = self;
+        [extractor startExtracting];
         
     }
 
@@ -279,7 +281,7 @@
 
 
 #pragma mark - LBYoutubePlayer Delegate Methods
--(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
     dispatch_async(dispatch_get_main_queue(), ^{
         wasPopped = YES;
         player = [[MoviePlayerViewController alloc]initWithContentURL:videoURL];
@@ -291,7 +293,7 @@
     
     
 }
--(void)youTubePlayerViewController:(LBYouTubePlayerViewController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor failedExtractingYouTubeURLWithError:(NSError *)error {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Startup Videos" message:@"Sorry, hustler, this video is not working right now" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
