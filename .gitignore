@@ -13,3 +13,6 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+/StartupVideos/.DS_Store
+/.DS_Store
