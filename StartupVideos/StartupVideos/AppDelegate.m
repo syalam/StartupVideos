@@ -122,7 +122,7 @@
     
     newFrame.size = adSize;
     newFrame.origin.x = (320 - adSize.width)/ 2;
-    newFrame.origin.y = (480 - adSize.height);
+    newFrame.origin.y = ([[UIScreen mainScreen]bounds].size.height - adSize.height);
     
     adWhirlView.frame = newFrame;
 }
