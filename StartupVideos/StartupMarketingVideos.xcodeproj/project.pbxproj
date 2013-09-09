@@ -45,11 +45,13 @@
 		1A553665161D6DCC000574FB /* product.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A55365E161D6DCC000574FB /* product.png */; };
 		1A553666161D6DCC000574FB /* sales.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A55365F161D6DCC000574FB /* sales.png */; };
 		1A553667161D6DCC000574FB /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A553660161D6DCC000574FB /* team.png */; };
-		1A7FD6FE17C03E0A005B433A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A7FD6FD17C03E09005B433A /* Default-568h@2x.png */; };
 		1A9A5A5D1601D5D400A3EAC2 /* fwd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */; };
 		1A9A5A5E1601D5D400A3EAC2 /* prev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */; };
 		1A9A5A621603E96600A3EAC2 /* Upsell 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A601603E96600A3EAC2 /* Upsell 100.png */; };
 		1A9A5A631603E96600A3EAC2 /* Upsell 100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A5A611603E96600A3EAC2 /* Upsell 100@2x.png */; };
+		1AA29FFF17DD0FAE005CF804 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA29FFE17DD0FAE005CF804 /* Default.png */; };
+		1AA2A00117DD0FB3005CF804 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2A00017DD0FB3005CF804 /* Default@2x.png */; };
+		1AA2A00317DD0FB8005CF804 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2A00217DD0FB8005CF804 /* Default-568h@2x.png */; };
 		1AB3687E15FD040E00D5DB64 /* MoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3687C15FD040C00D5DB64 /* MoviePlayerViewController.m */; };
 		1AB3687F15FD040E00D5DB64 /* MoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3687D15FD040D00D5DB64 /* MoviePlayerViewController.xib */; };
 		1AB3688C15FD8BCB00D5DB64 /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3688A15FD8BCB00D5DB64 /* AdViewController.m */; };
@@ -211,11 +213,13 @@
 		1A55365E161D6DCC000574FB /* product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product.png; sourceTree = "<group>"; };
 		1A55365F161D6DCC000574FB /* sales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sales.png; sourceTree = "<group>"; };
 		1A553660161D6DCC000574FB /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
-		1A7FD6FD17C03E09005B433A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1A9A5A5B1601D5D400A3EAC2 /* fwd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fwd@2x.png"; sourceTree = "<group>"; };
 		1A9A5A5C1601D5D400A3EAC2 /* prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prev@2x.png"; sourceTree = "<group>"; };
 		1A9A5A601603E96600A3EAC2 /* Upsell 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Upsell 100.png"; sourceTree = "<group>"; };
 		1A9A5A611603E96600A3EAC2 /* Upsell 100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Upsell 100@2x.png"; sourceTree = "<group>"; };
+		1AA29FFE17DD0FAE005CF804 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1AA2A00017DD0FB3005CF804 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1AA2A00217DD0FB8005CF804 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1AB3687A15FCF00000D5DB64 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		1AB3687B15FD040C00D5DB64 /* MoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayerViewController.h; path = StartupVideos/MoviePlayerViewController.h; sourceTree = "<group>"; };
 		1AB3687C15FD040C00D5DB64 /* MoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayerViewController.m; path = StartupVideos/MoviePlayerViewController.m; sourceTree = "<group>"; };
@@ -645,7 +649,9 @@
 		8C5940F015AFBBD600410B63 = {
 			isa = PBXGroup;
 			children = (
-				1A7FD6FD17C03E09005B433A /* Default-568h@2x.png */,
+				1AA2A00217DD0FB8005CF804 /* Default-568h@2x.png */,
+				1AA2A00017DD0FB3005CF804 /* Default@2x.png */,
+				1AA29FFE17DD0FAE005CF804 /* Default.png */,
 				8C59410515AFBBD600410B63 /* StartupVideos */,
 				8C5940FE15AFBBD600410B63 /* Frameworks */,
 				8C5940FC15AFBBD600410B63 /* Products */,
@@ -1033,7 +1039,9 @@
 				1AE18BC2161F44EB007BD57F /* playicon2.png in Resources */,
 				1AE18BC3161F44EB007BD57F /* playicon2@2x.png in Resources */,
 				1ADF42AF162F1E9D00540D01 /* theIdea.png in Resources */,
-				1A7FD6FE17C03E0A005B433A /* Default-568h@2x.png in Resources */,
+				1AA29FFF17DD0FAE005CF804 /* Default.png in Resources */,
+				1AA2A00117DD0FB3005CF804 /* Default@2x.png in Resources */,
+				1AA2A00317DD0FB8005CF804 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,8 +1176,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videolark Inc. (28V8W66Z7L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videolark Inc. (28V8W66Z7L)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1178,8 +1186,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "D35A3513-09D7-4C41-9061-E3C1637B6AD6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D35A3513-09D7-4C41-9061-E3C1637B6AD6";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1234,8 +1242,8 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = StartupMarketingVideos;
-				PROVISIONING_PROFILE = "0BAD8026-9D1A-40AB-AA18-F9D4A2C1723F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0BAD8026-9D1A-40AB-AA18-F9D4A2C1723F";
+				PROVISIONING_PROFILE = "D35A3513-09D7-4C41-9061-E3C1637B6AD6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D35A3513-09D7-4C41-9061-E3C1637B6AD6";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
